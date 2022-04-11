@@ -26,7 +26,7 @@
     "expression": "^0.0.1",
     "node-fetch": "^3.2.3",
     "passport": "^0.5.2",
-    "path":"^0.12.7",
+    "path": "^0.12.7",
     "socket.io": "^4.4.1"
   },
   "devDependencies": {

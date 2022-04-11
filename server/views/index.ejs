@@ -8,6 +8,10 @@
 </head>
 <body>
     <h1>Githyves</h1>
+    <h2>Issues</h2>
+    <% issues.forEach(issue => { %>
+    <p><%= issue.node.bodyText %></p>
+    <% }) %>
 </body>
 <script src="/socket.io/socket.io.js"></script>
 <script>

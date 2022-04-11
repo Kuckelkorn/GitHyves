@@ -1,25 +1,20 @@
 
-import express from 'express'
-import compression from 'compression'
-import http from 'http'
-import module from 'path'
-import { Server } from "socket.io"
-import ejs from 'ejs'
+const socket = require('socket.io')
+const http = require('http')
+const path = require('path')
+const router = require('./server/routes/router')
+const express = require('express')
+const ejs = require('ejs')
+const compression = require('compression')
+
+require('dotenv').config()
 
 const app = express();
 const server = http.createServer(app)
-const io = new Server(server);
+// const io = new Server(server);
 
 // const hostname = '127.0.0.1';
 const port = process.env.PORT || 5500
-
-io.on('connection', socket => {
-  console.log('a user connected')
-  socket.emit("hello", "world")
-  socket.on('disconnect', () => {
-    console.log('user disconnected')
-  })
-})
 
 app
   .use(compression())
@@ -30,12 +25,10 @@ app
 
   .set('view engine', 'ejs')
   .set('views', 'server/views')
-  .use(express.static('static'))
+  .use(express.static('public'))
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
-  .get('/', (req, res) => {
-  res.render('index')
-});
+  .use(router)
 
 server.listen(port, () => {
     console.log("App is running on port " + port);

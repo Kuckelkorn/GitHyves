@@ -19,11 +19,17 @@
   },
   "homepage": "https://github.com/Kuckelkorn/GitHyves#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "expression": "^0.0.1",
     "node-fetch": "^3.2.3",
+<<<<<<< HEAD
+=======
+    "passport": "^0.5.2",
+    "path": "^0.12.7",
+>>>>>>> development
     "socket.io": "^4.4.1"
   },
   "devDependencies": {

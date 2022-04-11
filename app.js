@@ -11,10 +11,11 @@ const server = http.createServer(app)
 const io = new Server(server);
 
 // const hostname = '127.0.0.1';
-const port = process.env.PORT || 1234
+const port = process.env.PORT || 5500
 
 io.on('connection', socket => {
   console.log('a user connected')
+  socket.emit("hello", "world")
   socket.on('disconnect', () => {
     console.log('user disconnected')
   })

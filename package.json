@@ -23,9 +23,11 @@
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
+    "expression": "^0.0.1",
     "node-fetch": "^3.2.3",
     "passport": "^0.5.2",
-    "expression": "^0.0.1"
+    "path": "^0.12.7",
+    "socket.io": "^4.4.1"
   },
   "devDependencies": {
     "compression": "^1.7.4",

@@ -1,4 +1,3 @@
-
 import express from 'express'
 import compression from 'compression'
 import http from 'http'
@@ -29,9 +28,9 @@ app
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
   .get('/', (req, res) => {
-  res.render('index')
+  res.render('index');
 });
 
 server.listen(port, () => {
     console.log("App is running on port " + port);
-})
+});

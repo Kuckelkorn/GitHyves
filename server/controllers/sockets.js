@@ -1,5 +1,4 @@
 
-
 const io = io()
 
 io.on('connection', (socket) => {
@@ -7,3 +6,5 @@ io.on('connection', (socket) => {
       console.log('message: ' + msg);
     });
   });
+
+  module.exports = socket

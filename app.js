@@ -26,8 +26,8 @@ app
     res.setHeader('Cache-Control', 'max-age=365000000, immutable')
     next()
 })
-
   .set('view engine', 'ejs')
+  .set('views', 'server/views')
   .use(express.static('static'))
   .use(express.json())
   .use(express.urlencoded({ extended: true }))

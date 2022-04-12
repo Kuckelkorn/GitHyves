@@ -1,5 +1,6 @@
 const express = require('express')
-const passport = require('passport')
+const passport = require('passport');
+require('../modules/passportModule.js')(passport);
 
 const router = express.Router()
 
@@ -32,6 +33,7 @@ router
       user: req.user._json
     })
   })
+
 
 
 module.exports = router

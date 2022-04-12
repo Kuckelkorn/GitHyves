@@ -7,7 +7,7 @@ const router = express.Router()
 router
 .get('/', (req, res) => {
     res.render('login')
-  })
+})
 
   //failed auth: route
 .get("/login", (req, res) => {
@@ -21,18 +21,18 @@ router
 })
 
 .get(
-  "/auth/github",
+"/auth/github",
   passport.authenticate("github", { scope: ["user:email"] })
 )
 
 .get('/github/callback', 
-  passport.authenticate('github', {
-    failureRedirect: '/login' }),
+  passport.authenticate('github', { failureRedirect: '/login' }),
   function(req, res) {
+    console.log(req.user._json)
     res.render('welcome', {
       user: req.user._json
     })
-  })
+})
 
 
 

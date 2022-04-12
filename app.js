@@ -8,39 +8,14 @@ const ejs = require('ejs')
 const compression = require('compression')
 const passport = require('passport')
 require('dotenv').config();
-<<<<<<< HEAD
-
-passport.serializeUser(function (user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function (user, done) {
-  done(null, user);
-});
-
-passport.use(new GitHubStrategy({
-  clientID: process.env.GITHUB_CLIENT_ID,
-  clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: "http://localhost:5500/github/callback",
-},
-function(accessToken, refreshToken, profile, done) {
-  process.nextTick(function () {
-    
-    return done(null, profile);
-  })
-}
-))
-
-require('dotenv').config()
-=======
 require('./server/modules/passportModule.js')(passport);
->>>>>>> development
 
 const app = express();
 const server = http.createServer(app)
 
 // const hostname = '127.0.0.1';
 const port = process.env.PORT || 5500
+
 
 app
   .use(compression())
@@ -66,9 +41,6 @@ app
 
   server.listen(port, () => {
     console.log("App is running on port " + port)
-<<<<<<< HEAD
-})
-=======
 })
 
 function logout(req, res ){
@@ -91,4 +63,3 @@ function loggedIn (req, res, next){
     res.redirect('/login');
   }
 }
->>>>>>> development

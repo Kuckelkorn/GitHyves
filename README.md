@@ -5,7 +5,7 @@
 
 # Introduction
 Hyves + Github = Githyves<br>
-Login met Github, Customize jouw profiel zoals voorheen, bekijk elkaars reposetory portfolio en live commits per branch.
+Login met Github, Customize jouw profiel zoals voorheen, bekijk elkaars repositories portfolio en live commits per branch.
 Schrijf geen krabbels maar code!
 
 <img src="https://github.com/Kuckelkorn/GitHyves/blob/main/assets/Home%20structuur.png" height="700" alt="banner">
@@ -24,23 +24,24 @@ Schrijf geen krabbels maar code!
   - [Author](#author)
 
 ## About
-**GotHyves is een platform om al jouw nerdy friends in de gaten te houden**
+**GitHyves is een platform om al jouw nerdy friends in de gaten te houden**
 
 GitHyves maakt gebruik van de [GraphQL API](https://docs.github.com/en/graphql/overview/about-the-graphql-api)
 
 ## Gecodeerd met
 GitHyves is gecodeerd met 
-- HTML
 - CSS
 - Express
 - NODE.JS
 - EJS
-- server side Javascript 
+- server side Javascript
+- Passport
+- GraphQL Github API 
 
 ## Features
 <ul>
   <li>Login met jouw Github</li>
-  <li>Bouw jouw portfolio op basis van je reposetories</li>
+  <li>Bouw jouw portfolio op basis van je repositories</li>
   <li>Customize jouw profiel en deel jouw persoonlijke portfolio link met jouw contacten</li>
   <li>Bekijk de commits an jouw vrienden in een real-time gegenereerde activiteits feed</li>
 </ul>
@@ -59,9 +60,6 @@ git clone https://github.com/Kuckelkorn/GitHyves
 ```
 2. Open de folder in jouw code applicatie [Zoals VSCODE](https://code.visualstudio.com/Download)
 3. Start een live port en bekijk het project in jouw browser
-
-## Documentation
-Lees hier mijn documentatie per week [wiki](https://github.com/Fabienne02/Quotes/wiki)
 
 ## Taken 
 Lees hier de taken verdeling van dit project [Taken](https://github.com/Kuckelkorn/GitHyves/projects/1)

@@ -15,6 +15,7 @@ router
 
 //successful auth: route
 .get("/success", (req, res) => {
+
   res.render('welcome')
 })
 
@@ -26,7 +27,11 @@ router
 .get('/github/callback', 
   passport.authenticate('github', { failureRedirect: '/login' }),
   function(req, res) {
-    res.redirect('/success')
+    console.log(req.user._json)
+    res.render('welcome', {
+      user: req.user._json
+    })
   })
+
 
 module.exports = router

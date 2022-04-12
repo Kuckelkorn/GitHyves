@@ -92,7 +92,22 @@ h1 {
 	font-weight: bold;
 	font-size: 1.2rem;
 	border-radius: 0.2rem;
+	display: inline-flex;
+	align-items: center;
 }
+
+.login a::before {
+	content: "";
+	background-image: url(../images/github-icon.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 1.2rem;
+	height: 1.2rem;
+	display: block;
+	margin-right: 0.5rem;
+}
+
 .login::before {
 	content: "";
 	background-image: url(../images/banana.gif);

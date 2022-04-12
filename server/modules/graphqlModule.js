@@ -1,10 +1,10 @@
+require('dotenv').config()
 const { graphql } = require('@octokit/graphql')
-
 const graphqlAuth = graphql.defaults({
   headers: { authorization: 'token ' + process.env.GITHUB_TOKEN },
 })
 
-const user = async (user) => {
+const getApiData = async (user) => {
   const data = await graphqlAuth(`{
     user(login: "${user}") {
       repositories(first: 10) {
@@ -19,5 +19,5 @@ const user = async (user) => {
   return await data
 }
 
-module.exports = user
+module.exports = getApiData
 

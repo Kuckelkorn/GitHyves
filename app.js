@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-const socket = require('socket.io')
-=======
-
->>>>>>> development
 const http = require('http')
 const path = require('path')
 const router = require('./server/controllers/login')

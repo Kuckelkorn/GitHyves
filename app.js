@@ -8,8 +8,8 @@ const ejs = require('ejs')
 const compression = require('compression')
 const passport = require('passport')
 require('dotenv').config();
-
 require('./server/modules/passportModule.js')(passport);
+
 
 const app = express();
 const server = http.createServer(app)
@@ -22,14 +22,12 @@ app
   .use(/.*-[0-9a-f]{10}\..*/, (req, res, next) => {
     res.setHeader('Cache-Control', 'max-age=365000000, immutable')
     next()
-
   })
   .use(session({ 
     secret: process.env.SESSION_SECRET, 
     resave: false,
     saveUninitialized: true
   }))
-
   .use(passport.initialize())
   .use(passport.session())
   .use('*', saveLocal)

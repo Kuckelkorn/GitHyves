@@ -2,7 +2,18 @@
 
 <main>
   <h1> <a href="/"> 🍌 Githyves</h1></a>
-  <h1>Welcome <%= user.login %></h1>
+    <h1>Welcome <%= user.login %></h1>
+
+  <section>
+    <% projects.forEach(project => { %>
+        <article>
+          <h2><%= project.name%></h2>
+          <p><%= project.description %></p>
+          <a class="github" href="<%= project.url %>" alt="Watch <%= project.name %> on GitHub"><span>Browse on GitHub</span></a>
+        </article>
+    <% }) %>
+  </section>
 </main>
 
 <%- include('./partials/foot') %>
+

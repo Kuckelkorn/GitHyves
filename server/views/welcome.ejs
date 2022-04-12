@@ -5,8 +5,16 @@
 <main>
   <h1> <a href="/"> 🍌 Githyves</h1></a>
   <h2>Welcome <%= user.login %></h2>
+  <section class="user">
+    <!-- profiel foto -->
+    <img src="" alt="gebruikers profielfoto">
+    <p><%= user.login %></p>
+    <div class="emotie">
+      <!-- hier moet emotie komen van git  -->
+    </div>
+  </section>
 
-  <section>
+  <section class="repositories">
     <% projects.forEach(project => { %>
         <article>
           <h2><%= project.name%></h2>
@@ -15,6 +23,30 @@
         </article>
     <% }) %>
       </section>
+
+      <section class="wijzig-profiel">
+        <!-- div voor de schaduw -->
+        <div>
+          <h3>Pimp mijn profiel!</h3>
+        </div>
+          <ul>
+            <li><button type="button" class="tk_btn" id="btnTk">Tekst kleur</button></li>
+            <li><button type="button" class="font_btn" id="btnFont">Font</button></li>
+            <li><button type="button" class="achtergrond_btn" id="btnAchtergrond">Achtergrond</button></li>
+            <li><button type="button" class="pins_btn" id="btnPins">Pins</button></li>
+          </ul>
+      </section>
+
+      <section class="vrienden">
+        <!-- Deze div herhalen voor elke vriend  -->
+        <div class="vriend1">
+          <!-- profiel foto -->
+          <img src="user image" alt="profiel foto vriend">
+          <!-- Nummer van repositories -->
+          <p></p>
+        </div>
+      </section>
+
 </main>
 
 <%- include('./partials/foot') %>

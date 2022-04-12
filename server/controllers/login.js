@@ -1,8 +1,7 @@
 const express = require('express')
 const passport = require('passport')
-
+const getApiData = require("../modules/graphqlModule")
 require('../modules/passportModule.js')(passport)
-const user = require('../modules/graphqlModule.js')
 
 const router = express.Router()
 
@@ -27,7 +26,7 @@ router
 )
 .get('/github/callback', 
   passport.authenticate('github', { failureRedirect: '/login' }), async (req, res) => {
-    const data = await user(req.user._json.login)
+    const data = await getApiData(req.user._json.login)
     res.render('welcome', {
       user: req.user._json,
       projects: await data.user.repositories.nodes

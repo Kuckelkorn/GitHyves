@@ -54,10 +54,11 @@ app
   .use(passport.initialize())
   .set('view engine', 'ejs')
   .set('views', 'server/views')
-  .use(express.static('static'))
+  .use(express.static('public'))
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
   .use(router)
+
 
   server.listen(port, () => {
     console.log("App is running on port " + port)

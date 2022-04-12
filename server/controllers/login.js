@@ -26,7 +26,8 @@ router
 )
 
 .get('/github/callback', 
-  passport.authenticate('github', { failureRedirect: '/login' }),
+  passport.authenticate('github', {
+    failureRedirect: '/login' }),
   function(req, res) {
     res.render('welcome', {
       user: req.user._json

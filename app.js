@@ -11,8 +11,6 @@ require('dotenv').config();
 
 const app = express();
 const server = http.createServer(app)
-
-const app = express();
 const port = process.env.PORT || 5500
 require('dotenv').config()
 

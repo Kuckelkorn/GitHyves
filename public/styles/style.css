@@ -1,13 +1,13 @@
 @font-face {
-  font-family: Comic Sans MS;
-  src: url("/font/Qdbettercomicsansbold-511d8.ttf");
-  font-weight: bold;
+	font-family: Comic Sans MS;
+	src: url("/font/Qdbettercomicsansbold-511d8.ttf");
+	font-weight: bold;
 }
 
 @font-face {
-  font-family: Comic Sans MS;
-  src: url("/font/Qdbettercomicsans-jEEeG.ttf");
-  font-weight: regular;
+	font-family: Comic Sans MS;
+	src: url("/font/Qdbettercomicsans-jEEeG.ttf");
+	font-weight: regular;
 }
 
 :root {

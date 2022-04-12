@@ -30,14 +30,6 @@ router
   passport.authenticate("github", { scope: ["user:email"] })
 )
 
-// .get('/github/callback', 
-//   passport.authenticate('github', { failureRedirect: '/login' }),
-//   function(req, res) {
-//     res.render('welcome', {
-//       user: req.user._json
-//     })
-//   })
-
 
   .get('/github/callback', 
   passport.authenticate('github', { failureRedirect: '/login' }), async function (req, res) {

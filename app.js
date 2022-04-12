@@ -31,6 +31,7 @@ app
   }))
   .use(passport.initialize())
   .use(passport.session())
+  .use('*', saveLocal)
   .set('view engine', 'ejs')
   .set('views', 'server/views')
   .use(express.static('public'))

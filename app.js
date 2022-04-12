@@ -30,11 +30,13 @@ app
 
   .set('view engine', 'ejs')
   .set('views', 'server/views')
-  .use(express.static('static'))
+  .use(express.static('public'))
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
   .get('/', (req, res) => {
-  res.render('index')
+  res.render('login', {
+
+  })
 });
 
 server.listen(port, () => {

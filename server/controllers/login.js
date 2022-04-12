@@ -1,8 +1,8 @@
 const express = require('express')
 const passport = require('passport')
+const { getApiData } = require('./data')
 
 require('../modules/passportModule.js')(passport)
-const user = require('../modules/graphqlModule.js')
 
 const router = express.Router()
 

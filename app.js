@@ -31,18 +31,13 @@ function(accessToken, refreshToken, profile, done) {
 }
 ))
 
-
-
 require('dotenv').config()
-
-
 
 const app = express();
 const server = http.createServer(app)
 
 // const hostname = '127.0.0.1';
 const port = process.env.PORT || 5500
-
 
 app
   .use(compression())

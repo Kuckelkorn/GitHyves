@@ -1,32 +1,42 @@
+const socket = require('socket.io')
+const http = require('http')
+const path = require('path')
+const router = require('./server/controllers/login')
+const session = require('express-session')
+const express = require('express')
+const ejs = require('ejs')
+const compression = require('compression')
+const passport = require('passport')
+const GitHubStrategy = require("passport-github2").Strategy
+require('dotenv').config();
 
-import express from 'express'
-import compression from 'compression'
-import http from 'http'
-import module from 'path'
-import { graphql } from '@octokit/graphql'
-import { Server } from "socket.io"
-import ejs from 'ejs'
-import dotenv from 'dotenv'
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
 
-dotenv.config()
+passport.deserializeUser(function (user, done) {
+  done(null, user);
+});
+
+passport.use(new GitHubStrategy({
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: "http://localhost:5500/github/callback",
+},
+function(accessToken, refreshToken, profile, done) {
+  process.nextTick(function () {
+    
+    return done(null, profile);
+  })
+}
+))
 
 const app = express();
 const server = http.createServer(app)
-const io = new Server(server);
-const graphqlAuth = graphql.defaults({
-  headers: { authorization: 'token ' +  process.env.API_KEY},
-})
 
 // const hostname = '127.0.0.1';
 const port = process.env.PORT || 5500
 
-io.on('connection', socket => {
-  console.log('a user connected')
-  socket.emit("hello", "world")
-  socket.on('disconnect', () => {
-    console.log('user disconnected')
-  })
-})
 
 app
   .use(compression())
@@ -34,33 +44,14 @@ app
     res.setHeader('Cache-Control', 'max-age=365000000, immutable')
     next()
 })
+  .use(passport.initialize())
   .set('view engine', 'ejs')
   .set('views', 'server/views')
   .use(express.static('static'))
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
-  .get('/', (req, res) => {
+  .use(router)
 
-  graphqlAuth(`{
-      user(login: "jody29") {
-        issues(first: 10, orderBy: {field: CREATED_AT, direction: DESC}) {
-          edges {
-            node {
-              bodyText
-            }
-          }
-        }
-      }
-    }`).then(data => {
-
-      console.log(data.user.issues.edges)
-      res.render('index', {
-        issues: data.user.issues.edges
-      })
-    })
-  
-});
-
-server.listen(port, () => {
-    console.log("App is running on port " + port);
+  server.listen(port, () => {
+    console.log("App is running on port " + port)
 })

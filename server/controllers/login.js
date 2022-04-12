@@ -17,13 +17,18 @@ router
 })
 
 //successful auth: route
-.get("/profile", ensureAuthenticated ,async (req, res) => {
+.get("/profile/:username", ensureAuthenticated ,async (req, res) => {
   const data = await user(req.user._json.login)
     res.render('welcome', {
       user: req.user._json,
       projects: await data.user.repositories.nodes
     })
 })
+
+.get('/profile/:username/edit', (req, res) =>{
+  res.render('pimpen')
+})
+
 
 .get(
   "/auth/github",
@@ -32,7 +37,7 @@ router
 .get('/github/callback', 
   passport.authenticate('github', { failureRedirect: '/login' }), 
   async (req, res) => {
-    res.redirect('/profile')
+    res.redirect(`/profile/${req.user.username}`)
 })
 
 function ensureAuthenticated(req, res, next) {

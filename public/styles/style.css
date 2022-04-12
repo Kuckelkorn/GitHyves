@@ -1,77 +1,137 @@
 @font-face {
-    font-family: Comic sans bold;
-    src: url("/font/Qdbettercomicsansbold-511d8.ttf");
+	font-family: Comic Sans MS;
+	src: url("/font/Qdbettercomicsansbold-511d8.ttf");
+	font-weight: bold;
 }
 
 @font-face {
-    font-family: Comic sans regular;
-    src: url("/font/Qdbettercomicsans-jEEeG.ttf");
+	font-family: Comic Sans MS;
+	src: url("/font/Qdbettercomicsans-jEEeG.ttf");
+	font-weight: regular;
+}
+
+:root {
+	--orange: #ff8a0e;
+	--white: #fff;
+	--grey: #666;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: "Arial", sans-serif;
 }
 
 body {
-    background-color: #ff8a0e;
-    color: white;
-    font-family: arial, sans-serif;
+	background-color: var(--orange);
+	color: var(--white);
+	min-height: 100vh;
+	position: relative;
 }
 
-h1 {
-    font-family: 'Comic sans bold';
-    font-size: 2.3em;
-}
-
-h2 {
-    font-family: 'Comic sans regular';
-    font-size: 0.8rem;
-    margin-top: -1.6em;
-}
-
-h3 {
-    font-size: 3em;
-    font-weight: 100;
-    display: flex;
-    justify-content: center;
-}
-
-div:nth-of-type(2) {
-    display: flex;
-    width: 80%;
-    /* justify-content: center */
-    justify-content: space-between;
-    margin: 0 auto;
-}
-
-img {
-    height: 8em;
-}
-
-section {
-    margin: 0 auto;
-    color: #ff8a0e;
-    background-color: white;
-    border-radius: 25px;
-    height: 20em;
-    width: 90em;
-    margin-top: -2em;
-}
-
-p {
-    display: flex;
-    font-size: 2em;
-    font-weight: 600;
-    justify-content: center;
-}
-
-p:nth-of-type(1) {
-    padding: 1em;
-}
-
-p:nth-of-type(2) {
-    margin-top: -1em;;
-    font-weight: 400;
+header,
+main,
+footer {
+	width: calc(100% - 2rem);
+	max-width: 75rem;
+	margin: 0 auto;
+	padding: 1rem;
 }
 
 a {
-    display: flex;
-    justify-content: center;
+	text-decoration: none;
 }
 
+.logo {
+	font-family: "Comic Sans MS";
+	font-weight: bold;
+	font-size: 2.5rem;
+	letter-spacing: 0.04em;
+}
+
+h1 {
+	text-align: center;
+	font-size: 3rem;
+	margin: 5rem 0 10rem;
+}
+
+.login {
+	--banana-size: 8rem;
+	/* margin: 0 auto; */
+	padding: 5rem 1rem;
+	background-color: var(--white);
+	color: var(--orange);
+	text-align: center;
+	position: relative;
+	border-radius: 0.4rem;
+}
+
+.login h2 {
+	font-family: "Comic Sans MS";
+	font-size: 2rem;
+	font-weight: bold;
+	letter-spacing: 0.04em;
+}
+
+.login p {
+	font-family: "Comic Sans MS";
+	font-size: 1.5rem;
+	font-weight: regular;
+	letter-spacing: 0.04em;
+}
+
+.login a {
+	background-color: var(--grey);
+	padding: 1em 2em;
+	color: var(--white);
+	display: inline-block;
+	margin-top: 2rem;
+	font-weight: bold;
+	font-size: 1.2rem;
+	border-radius: 0.2rem;
+	display: inline-flex;
+	align-items: center;
+}
+
+.login a::before {
+	content: "";
+	background-image: url(../images/github-icon.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 1.2rem;
+	height: 1.2rem;
+	display: block;
+	margin-right: 0.5rem;
+}
+
+.login::before {
+	content: "";
+	background-image: url(../images/banana.gif);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: var(--banana-size);
+	height: var(--banana-size);
+	display: block;
+	position: absolute;
+	top: calc(var(--banana-size) * -1);
+	left: 10vw;
+}
+
+.login::after {
+	content: "";
+	background-image: url(../images/banana.gif);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: var(--banana-size);
+	height: var(--banana-size);
+	display: block;
+	position: absolute;
+	top: calc(var(--banana-size) * -1);
+	right: 10vw;
+}

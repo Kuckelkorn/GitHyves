@@ -30,15 +30,12 @@ function(accessToken, refreshToken, profile, done) {
   })
 }
 ))
-<<<<<<< HEAD
-=======
 
 
 
 require('dotenv').config()
 
 
->>>>>>> Remco
 
 const app = express();
 const server = http.createServer(app)

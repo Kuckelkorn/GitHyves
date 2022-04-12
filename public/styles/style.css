@@ -1,49 +1,76 @@
+@font-face {
+  font-family: Comic sans bold;
+  src: url("/font/Qdbettercomicsansbold-511d8.ttf");
+}
+
+@font-face {
+  font-family: Comic sans regular;
+  src: url("/font/Qdbettercomicsans-jEEeG.ttf");
+}
+
 body {
-  margin: 0;
-  padding-bottom: 3rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #ff8a0e;
+  color: white;
+  font-family: arial, sans serif;
 }
 
-#form {
-  background: rgba(0, 0, 0, 0.15);
-  padding: 0.25rem;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+h1 {
+  font-family: "Comic sans bold";
+  font-size: 2.3em;
+}
+
+h2 {
+  font-family: "Comic sans regular";
+  font-size: 0.8rem;
+  margin-top: -1.6em;
+}
+
+h3 {
+  font-size: 3em;
+  font-weight: 100;
   display: flex;
-  height: 3rem;
-  box-sizing: border-box;
-  backdrop-filter: blur(10px);
-}
-#input {
-  border: none;
-  padding: 0 1rem;
-  flex-grow: 1;
-  border-radius: 2rem;
-  margin: 0.25rem;
-}
-#input:focus {
-  outline: none;
-}
-#form > button {
-  background: #333;
-  border: none;
-  padding: 0 1rem;
-  margin: 0.25rem;
-  border-radius: 3px;
-  outline: none;
-  color: #fff;
+  justify-content: center;
 }
 
-#messages {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+div:nth-of-type(2) {
+  display: flex;
+  width: 80%;
+  /* justify-content: center */
+  justify-content: space-between;
+  margin: 0 auto;
 }
-#messages > li {
-  padding: 0.5rem 1rem;
+
+img {
+  height: 8em;
 }
-#messages > li:nth-child(odd) {
-  background: #efefef;
+
+section {
+  margin: 0 auto;
+  color: #ff8a0e;
+  background-color: white;
+  border-radius: 25px;
+  height: 20em;
+  width: 90em;
+  margin-top: -2em;
+}
+
+p {
+  display: flex;
+  font-size: 2em;
+  font-weight: 600;
+  justify-content: center;
+}
+
+p:nth-of-type(1) {
+  padding: 1em;
+}
+
+p:nth-of-type(2) {
+  margin-top: -1em;
+  font-weight: 400;
+}
+
+a {
+  display: flex;
+  justify-content: center;
 }

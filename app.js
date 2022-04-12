@@ -1,26 +1,21 @@
 
-const { Server } = require("socket.io");
 const http = require('http')
-
 const path = require('path')
-const router = require('./server/routes/router')
-
+const router = require('./server/controllers/login')
+const session = require('express-session')
 const express = require('express')
 const ejs = require('ejs')
 const compression = require('compression')
+const passport = require('passport')
+require('dotenv').config();
+
+const app = express();
+const server = http.createServer(app)
 
 const app = express();
 const port = process.env.PORT || 5500
 require('dotenv').config()
 
-const server = http.createServer(app);
-const io = new Server(server);
-
-io.on('connection', (socket) => {
-  socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
-  });
-});
 
 app
   .use(compression())
@@ -28,6 +23,8 @@ app
     res.setHeader('Cache-Control', 'max-age=365000000, immutable')
     next()
 })
+
+  .use(passport.initialize())
   .set('view engine', 'ejs')
   .set('views', 'server/views')
   .use(express.static('public'))
@@ -35,7 +32,6 @@ app
   .use(express.urlencoded({ extended: true }))
   .use(router)
 
-
-server.listen(port, () => {
-    console.log("App is running on port " + port);
+  server.listen(port, () => {
+    console.log("App is running on port " + port)
 })

@@ -1,5 +1,4 @@
 
-const socket = require('socket.io')
 const http = require('http')
 const path = require('path')
 const router = require('./server/controllers/login')
@@ -11,11 +10,11 @@ const passport = require('passport')
 require('dotenv').config();
 require('./server/modules/passportModule.js')(passport);
 
+
 const app = express();
 const server = http.createServer(app)
-
-// const hostname = '127.0.0.1';
 const port = process.env.PORT || 5500
+require('dotenv').config()
 
 
 app
@@ -38,7 +37,6 @@ app
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
   .use(router)
-
 
   server.listen(port, () => {
     console.log("App is running on port " + port)

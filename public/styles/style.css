@@ -1,77 +1,76 @@
 @font-face {
-    font-family: Comic sans bold;
-    src: url("/font/Qdbettercomicsansbold-511d8.ttf");
+  font-family: Comic sans bold;
+  src: url("/font/Qdbettercomicsansbold-511d8.ttf");
 }
 
 @font-face {
-    font-family: Comic sans regular;
-    src: url("/font/Qdbettercomicsans-jEEeG.ttf");
+  font-family: Comic sans regular;
+  src: url("/font/Qdbettercomicsans-jEEeG.ttf");
 }
 
 body {
-    background-color: #ff8a0e;
-    color: white;
-    font-family: arial, sans serif;
+  background-color: #ff8a0e;
+  color: white;
+  font-family: arial, sans serif;
 }
 
 h1 {
-    font-family: 'Comic sans bold';
-    font-size: 2.3em;
+  font-family: "Comic sans bold";
+  font-size: 2.3em;
 }
 
 h2 {
-    font-family: 'Comic sans regular';
-    font-size: 0.8rem;
-    margin-top: -1.6em;
+  font-family: "Comic sans regular";
+  font-size: 0.8rem;
+  margin-top: -1.6em;
 }
 
 h3 {
-    font-size: 3em;
-    font-weight: 100;
-    display: flex;
-    justify-content: center;
+  font-size: 3em;
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
 }
 
 div:nth-of-type(2) {
-    display: flex;
-    width: 80%;
-    /* justify-content: center */
-    justify-content: space-between;
-    margin: 0 auto;
+  display: flex;
+  width: 80%;
+  /* justify-content: center */
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
 img {
-    height: 8em;
+  height: 8em;
 }
 
 section {
-    margin: 0 auto;
-    color: #ff8a0e;
-    background-color: white;
-    border-radius: 25px;
-    height: 20em;
-    width: 90em;
-    margin-top: -2em;
+  margin: 0 auto;
+  color: #ff8a0e;
+  background-color: white;
+  border-radius: 25px;
+  height: 20em;
+  width: 90em;
+  margin-top: -2em;
 }
 
 p {
-    display: flex;
-    font-size: 2em;
-    font-weight: 600;
-    justify-content: center;
+  display: flex;
+  font-size: 2em;
+  font-weight: 600;
+  justify-content: center;
 }
 
 p:nth-of-type(1) {
-    padding: 1em;
+  padding: 1em;
 }
 
 p:nth-of-type(2) {
-    margin-top: -1em;;
-    font-weight: 400;
+  margin-top: -1em;
+  font-weight: 400;
 }
 
 a {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
-

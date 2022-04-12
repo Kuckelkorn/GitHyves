@@ -44,7 +44,7 @@ router
     // Get the repository information from my GitHub account
     await graphqlAuth(`{
       user(login: "${req.user._json.login}") {
-        repositories(first: 10) {
+        repositories(first: 10, orderBy: {field: UPDATED_AT, direction: DESC}, privacy: PUBLIC, isFork: false) {
           totalCount
           nodes {
             name

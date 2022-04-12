@@ -28,8 +28,6 @@ io.on('connection', socket => {
   })
 })
 
-
-
 app
   .use(compression())
   .use(/.*-[0-9a-f]{10}\..*/, (req, res, next) => {

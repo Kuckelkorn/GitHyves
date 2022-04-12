@@ -8,8 +8,8 @@ const router = express.Router()
 
 router
 .get('/', (req, res) => {
-    res.render('login')
-  })
+  res.render('login')
+})
 
   //failed auth: route
 .get("/login", (req, res) => {
@@ -17,8 +17,12 @@ router
 })
 
 //successful auth: route
-.get("/success", (req, res) => {
-  res.render('welcome')
+.get("/profile", ensureAuthenticated ,async (req, res) => {
+  const data = await user(req.user._json.login)
+    res.render('welcome', {
+      user: req.user._json,
+      projects: await data.user.repositories.nodes
+    })
 })
 
 .get('/profile', (req, res) => {
@@ -30,13 +34,15 @@ router
   passport.authenticate("github", { scope: ["user:email"] })
 )
 .get('/github/callback', 
-  passport.authenticate('github', { failureRedirect: '/login' }), async (req, res) => {
-    const data = await user(req.user._json.login)
-    res.render('welcome', {
-      user: req.user._json,
-      projects: await data.user.repositories.nodes
-    })
+  passport.authenticate('github', { failureRedirect: '/login' }), 
+  async (req, res) => {
+    res.redirect('/profile')
 })
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next() }
+  res.redirect('/')
+}
 
 
 module.exports = router

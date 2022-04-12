@@ -135,3 +135,14 @@ h1 {
   top: calc(var(--banana-size) * -1);
   right: 10vw;
 }
+
+#profile section:first-of-type {
+    width: 10em;
+    aspect-ratio: 1/1;
+}
+
+#profile section:first-of-type img {
+    width: 10em;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}

@@ -25,6 +25,10 @@ router
   res.render('welcome')
 })
 
+.get('/profile', (req, res) => {
+  res.render('profile')
+})
+
 .get(
   "/auth/github",
   passport.authenticate("github", { scope: ["user:email"] })

@@ -6,11 +6,7 @@ const session = require('express-session')
 const bodyParser = require('body-parser')
 const fs = require('fs')
 const express = require('express')
-<<<<<<< HEAD
-const bodyParser = require('body-parser')
 const ejs = require('ejs')
-=======
->>>>>>> Jody
 const compression = require('compression')
 const passport = require('passport')
 const dateFormat = require('dateformat')

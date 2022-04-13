@@ -1,15 +1,14 @@
-<%- include('./partials/head') %> <%- include('./partials/header') %> <%
-if(custom.textColor){ %>
+<%- include('./partials/head') %> <% if(custom.textColor){ %>
 <body
 	style="
-		--background-color: <%= custom.backgroundColor ? custom.backgroundColor : '#ff8a0e' %>;
-		--text-color: <%= custom.textColor ? custom.textColor : '#ff8a0e' %>;
-		--background-image: <%= custom.image ? 'url(' + custom.image.replace('public','') + ')' : 'none' %>
-	"
+	   --background-color: <%= custom.backgroundColor ? custom.backgroundColor : '#ff8a0e' %>;
+	   --text-color: <%= custom.textColor ? custom.textColor : '#ff8a0e' %>;
+	   --background-image: <%= custom.image ? 'url(' + custom.image.replace('public','') + ')' : 'none' %>
+   "
 >
 	<%} else { %>
 	<body>
-		<% } %>
+		<% } %> <%- include('./partials/header') %>
 		<main class="welcome">
 			<section class="user">
 				<img
@@ -70,4 +69,5 @@ if(custom.textColor){ %>
 				</ul>
 			</section>
 		</main>
-</body>
+	</body>
+</html>

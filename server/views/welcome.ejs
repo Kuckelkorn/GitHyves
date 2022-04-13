@@ -1,7 +1,8 @@
-<%- include('./partials/head') %> <%- include('./partials/header') %> <% if(custom){ %>
+<%- include('./partials/head') %> <%- include('./partials/header') %> 
+<% if(custom.textColor){ %>
 <body style="--custom-color: <%= custom.textColor %>">
-  <%} else { %>
-  <body>
+<%} else { %>
+<body>
     <% } %>
     <main class="welcome">
       <section class="user">

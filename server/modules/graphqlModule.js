@@ -6,7 +6,7 @@ const graphqlAuth = graphql.defaults({
 
 const getApiData = async (user) => {
   const data = await graphqlAuth(`{
-    user(login: "joeribouwman25") {
+    user(login: "${user}") {
       status {
         emoji
         message

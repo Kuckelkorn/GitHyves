@@ -27,7 +27,7 @@
 }
 
 body {
-	background-color: var(--custom-color, var(--orange));
+	background-color: var(--background-color, var(--orange));
 	color: var(--white);
 	min-height: 100vh;
 	position: relative;
@@ -209,7 +209,7 @@ h1 {
 
 .user {
 	background-color: var(--white);
-	color: var(--orange);
+	color: var(--text-color, var(--orange));
 	border-radius: 0.4rem;
 	padding: 1rem;
 	max-width: 20rem;
@@ -223,11 +223,12 @@ h1 {
 	display: block;
 	margin: 1rem 0;
 	text-align: center;
+	background-color: var(--text-color, var(--orange));
 }
 
 .vrienden {
 	background-color: var(--white);
-	color: var(--orange);
+	color: var(--text-color, var(--orange));
 	border-radius: 0.4rem;
 	padding: 1rem;
 	max-width: 20rem;
@@ -247,7 +248,7 @@ h1 {
 .vriend a {
 	font-weight: 500;
 	font-size: 1.2rem;
-	color: var(--orange);
+	color: var(--text-color, var(--orange));
 }
 
 .vriend img {

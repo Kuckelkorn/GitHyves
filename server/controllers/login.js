@@ -36,6 +36,9 @@ router
   async (req, res) => {
     res.redirect('/profile')
 })
+.get('/logout', (req, res) => {
+  req.logout()
+})
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next() }

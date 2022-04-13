@@ -4,6 +4,7 @@ if(custom.textColor){ %>
 	style="
 		--background-color: <%= custom.backgroundColor ? custom.backgroundColor : '#ff8a0e' %>;
 		--text-color: <%= custom.textColor ? custom.textColor : '#ff8a0e' %>;
+		--background-image: <%= custom.image ? 'url(' + custom.image.replace('public','') + ')' : 'none' %>
 	"
 >
 	<%} else { %>

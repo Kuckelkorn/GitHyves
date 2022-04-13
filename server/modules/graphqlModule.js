@@ -4,7 +4,7 @@ const graphqlAuth = graphql.defaults({
   headers: { authorization: 'token ' + process.env.GITHUB_TOKEN },
 })
 
-const getApiData = async (user) => {
+const getApiProfileData = async (user) => {
   const data = await graphqlAuth(`{
     user(login: "${user}") {
       status {
@@ -19,8 +19,9 @@ const getApiData = async (user) => {
             totalCount
           }
         }
+        totalCount
       }
-      repositories(first: 10) {
+      repositories(first: 10, orderBy: {field: CREATED_AT, direction: DESC}) {
         nodes {
           name
           url
@@ -39,5 +40,5 @@ const getApiData = async (user) => {
 
 
 
-module.exports = getApiData
+module.exports = getApiProfileData
 

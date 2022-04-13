@@ -2,7 +2,7 @@ const express = require('express')
 const passport = require('passport')
 
 require('../modules/passportModule.js')(passport)
-const user = require('../modules/graphqlModule.js')
+const getApiProfileData = require('../modules/graphqlModule.js')
 
 const router = express.Router()
 
@@ -18,12 +18,12 @@ router
 
 //successful auth: route
 .get("/profile", ensureAuthenticated ,async (req, res) => {
-  const data = await user(req.user._json.login)
+  const data = await getApiProfileData(req.user._json.login)
   const projectData = await data.user.repositories.nodes
-  console.log(data.user.following.nodes)
     res.render('welcome', {
       user: req.user._json,
       userStatus: data.user.status,
+      friends: data.user.following.totalCount,
       followers: data.user.following.nodes,
       projects: projectData
     })

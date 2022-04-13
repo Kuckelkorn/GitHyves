@@ -14,8 +14,6 @@
 			xmlns:xlink="http://www.w3.org/1999/xlink"
 			xmlns:svgjs="http://svgjs.com/svgjs"
 			version="1.1"
-			width="512"
-			height="512"
 			x="0"
 			y="0"
 			viewBox="0 0 24 24"
@@ -66,8 +64,9 @@
 						data-original="#000000"
 					/>
 				</g>
-			</g></svg
-	></a>
+			</g>
+		</svg>
+	</a>
 </header>
 
 <main>
@@ -83,7 +82,7 @@
 	<section class="repositories">
 		<% projects.forEach(project => { %>
 		<article>
-			<h2><%= project.name%></h2>
+			<h2><%= project.name %></h2>
 			<p><%= project.description %></p>
 			<a
 				class="github"

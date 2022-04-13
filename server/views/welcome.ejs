@@ -79,7 +79,7 @@
       <p><%= userStatus.message %></p>
     </div>
     <% } %>
-    <a class="button button-orange" href="">Pimp mijn profiel</a>
+    <a class="button button-orange" href="/profile/<%= user.login %>/edit">Pimp mijn profiel</a>
     <a class="logout" href="/logout">log out</a>
   </section>
 
@@ -101,7 +101,7 @@
   </section>
 
   <section class="vrienden">
-    <h2>Vrienden (<%= friends %>)</h2>
+    <h2>Vrienden</h2>
     <ul>
       <% followers.forEach(follower => { %>
       <li class="vriend">
@@ -110,26 +110,6 @@
         <p><%= follower.login %> (<%= follower.following.totalCount %>)</p>
       </li>
       <% }) %>
-    </ul>
-  </section>
-  <section class="wijzig-profiel">
-    <!-- div voor de schaduw -->
-    <div>
-      <a href="/profile/<%= user.login %>/edit"><h3>Pimp mijn profiel!</h3></a>
-    </div>
-    <ul>
-      <li>
-        <button type="button" class="tk_btn" id="btnTk">Tekst kleur</button>
-      </li>
-      <li>
-        <button type="button" class="font_btn" id="btnFont">Font</button>
-      </li>
-      <li>
-        <button type="button" class="achtergrond_btn" id="btnAchtergrond">Achtergrond</button>
-      </li>
-      <li>
-        <button type="button" class="pins_btn" id="btnPins">Pins</button>
-      </li>
     </ul>
   </section>
 </main>

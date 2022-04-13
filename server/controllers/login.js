@@ -37,7 +37,7 @@ router
     const projectData = await data.user.repositories.nodes
     res.render('welcome', {
       profile,
-      user: req.user._json,
+      user: username,
       userStatus: data.user.status,
       friends: data.user.following.totalCount,
       followers: data.user.following.nodes,
@@ -65,9 +65,9 @@ router
   res.redirect(`/profile/${user.username}`)
 })
 
-.get('/profile', (req, res) => {
-  res.render('profile')
-})
+// .get('/profile', (req, res) => {
+//   res.render('profile')
+// })
 
 .get(
   "/auth/github",
@@ -76,10 +76,12 @@ router
 .get('/github/callback', 
   passport.authenticate('github', { failureRedirect: '/login' }), 
   async (req, res) => {
-    const profile = checkForProfile(req.user.username, profiles)
+    const profile = await checkForProfile(req.user.username, profiles)
+    console.log(profile)
     if (profile != undefined){
       res.redirect(`/profile/${req.user.username}`)
     } else {
+      console.log(req.user.username)
       const newProfile = {
         username: req.user.username
       }

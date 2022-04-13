@@ -6,7 +6,11 @@ const graphqlAuth = graphql.defaults({
 
 const getApiData = async (user) => {
   const data = await graphqlAuth(`{
-    user(login: "${user}") {
+    user(login: "joeribouwman25") {
+      status {
+        emoji
+        message
+      }
       repositories(first: 10) {
         nodes {
           name

@@ -22,6 +22,7 @@ router
   const projectData = await data.user.repositories.nodes
     res.render('welcome', {
       user: req.user._json,
+      userStatus: data.user.status,
       projects: projectData
     })
 })

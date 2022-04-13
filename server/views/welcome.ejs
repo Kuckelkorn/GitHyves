@@ -141,24 +141,28 @@
 >>>>>>> development
 </header>
 
-<main>
+<main class="welcome">
   <section class="user">
-    <!-- profiel foto -->
-    <img src="" alt="gebruikers profielfoto" />
+    <img src="<%= user.avatar_url %>" alt="gebruikers profielfoto" />
     <p><%= user.login %></p>
-    <div class="emotie">
-      <!-- hier moet emotie komen van git  -->
+    <div>
+      <span><%= userStatus.emoji %></span>
+      <p><%= userStatus.message %></p>
     </div>
   </section>
 
   <section class="repositories">
     <% projects.forEach(project => { %>
     <article>
-      <h2><%= project.name%></h2>
-      <p><%= project.description %></p>
       <a class="github" href="<%= project.url %>" alt="Watch <%= project.name %> on GitHub"
-        ><span>Browse on GitHub</span></a
+        ><h2><%= project.name%></h2></a
       >
+      <p><%= project.description %></p>
+      <ul>
+        <% project.languages.nodes.forEach(language => { %>
+        <li><%= language.name %></li>
+        <% }) %>
+      </ul>
     </article>
     <% }) %>
   </section>
@@ -193,6 +197,8 @@
       <p></p>
     </div>
   </section>
+
+  <a href="/logout">log out</a>
 
   <%- include('./partials/foot') %>
 </main>

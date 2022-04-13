@@ -69,7 +69,7 @@
 	</a>
 </header>
 
-<main class="welcome">
+<main class="welcome" data-color="<%= profile.textColor %>">
 	<section class="user">
 		<img src="<%= user.avatar_url %>" alt="gebruikers profielfoto" />
 		<h2><%= user.login %></h2>
@@ -120,5 +120,25 @@
 			<% }) %>
 		</ul>
 	</section>
+  <section class="wijzig-profiel">
+    <!-- div voor de schaduw -->
+    <div>
+      <a href="/profile/<%= user.login %>/edit"><h3>Pimp mijn profiel!</h3></a>
+    </div>
+    <ul>
+      <li>
+        <button type="button" class="tk_btn" id="btnTk">Tekst kleur</button>
+      </li>
+      <li>
+        <button type="button" class="font_btn" id="btnFont">Font</button>
+      </li>
+      <li>
+        <button type="button" class="achtergrond_btn" id="btnAchtergrond">Achtergrond</button>
+      </li>
+      <li>
+        <button type="button" class="pins_btn" id="btnPins">Pins</button>
+      </li>
+    </ul>
+  </section>
 </main>
 <%- include('./partials/foot') %>

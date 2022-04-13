@@ -66,6 +66,7 @@ router
   const profile = {
     username: `${user.username}`,
     textColor: req.body.tekstkleur,
+    backgroundColor: req.body.achtergrondkleur,
     image: `${path}`
   }
   writeFile(profile, profiles)

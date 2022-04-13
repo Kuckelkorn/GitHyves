@@ -19,9 +19,11 @@ router
 //successful auth: route
 .get("/profile", ensureAuthenticated ,async (req, res) => {
   const data = await user(req.user._json.login)
+  const projectData = await data.user.repositories.nodes
     res.render('welcome', {
       user: req.user._json,
-      projects: await data.user.repositories.nodes
+      userStatus: data.user.status,
+      projects: projectData
     })
 })
 

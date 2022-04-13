@@ -68,49 +68,53 @@
     </svg>
   </a>
 </header>
+<% if(custom){ %>
+<body style="--custom-color: <%= custom.textColor %>">
+<%} else { %>
+<body>
+<% } %> 
+  <main class="welcome">
+    <section class="user">
+      <img src="<%= profile.user.avatarUrl %>" alt="gebruikers profielfoto" />
+      <h2><%= profile.user.login %></h2>
+      <% if(profile.userStatus){ %>
+      <div>
+        <span><%= profile.gitEmoji %></span>
+        <p><%= profile.userStatus.message %></p>
+      </div>
+      <% } %>
+      <a class="button button-orange" href="/profile/<%= profile.user.login %>/edit">Pimp mijn profiel</a>
+      <a class="logout" href="/logout">log out</a>
+    </section>
 
-<main class="welcome" data-color="<%= profile.textColor %>">
-  <section class="user">
-    <img src="<%= user.avatarUrl %>" alt="gebruikers profielfoto" />
-    <h2><%= user.login %></h2>
-    <% if(userStatus){ %>
-    <div>
-      <span><%= gitEmoji %></span>
-      <p><%= userStatus.message %></p>
-    </div>
-    <% } %>
-    <a class="button button-orange" href="/profile/<%= user.login %>/edit">Pimp mijn profiel</a>
-    <a class="logout" href="/logout">log out</a>
-  </section>
+    <section class="repositories">
+      <!-- <h2>Repositories</h2> -->
+      <% profile.projects.forEach(project => { %>
+      <article>
+        <a class="github" href="<%= project.url %>" alt="Watch <%= project.name %> on GitHub"
+          ><h3><%= project.name%></h3></a
+        >
+        <p><%= project.description %></p>
+        <ul>
+          <% project.languages.nodes.forEach(language => { %>
+          <li><%= language.name %></li>
+          <% }) %>
+        </ul>
+      </article>
+      <% }) %>
+    </section>
 
-  <section class="repositories">
-    <!-- <h2>Repositories</h2> -->
-    <% projects.forEach(project => { %>
-    <article>
-      <a class="github" href="<%= project.url %>" alt="Watch <%= project.name %> on GitHub"
-        ><h3><%= project.name%></h3></a
-      >
-      <p><%= project.description %></p>
+    <section class="vrienden">
+      <h2>Vrienden</h2>
       <ul>
-        <% project.languages.nodes.forEach(language => { %>
-        <li><%= language.name %></li>
+        <% profile.followers.forEach(follower => { %>
+        <li class="vriend">
+          <img src="<%= follower.avatarUrl %>" alt="profielfoto van <%= follower.name %>" />
+          <!-- Nummer van repositories -->
+          <p><%= follower.login %> (<%= follower.following.totalCount %>)</p>
+        </li>
         <% }) %>
       </ul>
-    </article>
-    <% }) %>
-  </section>
-
-  <section class="vrienden">
-    <h2>Vrienden</h2>
-    <ul>
-      <% followers.forEach(follower => { %>
-      <li class="vriend">
-        <img src="<%= follower.avatarUrl %>" alt="profielfoto van <%= follower.name %>" />
-        <!-- Nummer van repositories -->
-        <p><%= follower.login %> (<%= follower.following.totalCount %>)</p>
-      </li>
-      <% }) %>
-    </ul>
-  </section>
-</main>
+    </section>
+  </main>
 <%- include('./partials/foot') %>

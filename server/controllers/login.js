@@ -34,6 +34,7 @@ router
   const profile = await checkForProfile(username, profiles)
   if (profile != undefined){
     const data = await user(profile.username)
+    const projectData = await data.user.repositories.nodes
     res.render('welcome', {
       profile,
       user: req.user._json,

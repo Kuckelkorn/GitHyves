@@ -44,9 +44,9 @@
 					alt="profielfoto van <%= follower.name %>"
 				/>
 				<!-- Nummer van repositories -->
-				<p>
+				<a href="/profile/<%= follower.login %>">
 					<%= follower.login %> (<%= follower.following.totalCount %>)
-				</p>
+				</a>
 			</li>
 			<% }) %>
 		</ul>

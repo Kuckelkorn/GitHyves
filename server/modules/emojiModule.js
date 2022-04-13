@@ -1,19 +1,13 @@
 const gemoji = require('gemoji')
 
-
-
-function fetchEmoji (string) {
+function getGitEmoji (string) {
     const emoji = string
     const allEmojis = gemoji
-    function isCherries(fruit) {
-        // console.log(fruit)
-        return fruit.names === emoji;
-      }
-    console.log(allEmojis.find(isCherries));
+    const result = allEmojis.find( ({ names }) => names == emoji );
+    return result
+
 }
 
-// console.log(fetchEmoji)
-
 module.exports= {
-    fetchEmoji
+    getGitEmoji
 }

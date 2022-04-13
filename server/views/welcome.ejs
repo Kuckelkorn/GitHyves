@@ -71,11 +71,11 @@
 
 <main class="welcome" data-color="<%= profile.textColor %>">
   <section class="user">
-    <img src="<%= user.avatar_url %>" alt="gebruikers profielfoto" />
+    <img src="<%= user.avatarUrl %>" alt="gebruikers profielfoto" />
     <h2><%= user.login %></h2>
     <% if(userStatus){ %>
     <div>
-      <span><%= userStatus.emoji %></span>
+      <span><%= gitEmoji %></span>
       <p><%= userStatus.message %></p>
     </div>
     <% } %>

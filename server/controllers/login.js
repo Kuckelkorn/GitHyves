@@ -5,6 +5,7 @@ const fs = require('fs')
 
 require('../modules/passportModule.js')(passport)
 const getApiProfileData = require('../modules/graphqlModule.js')
+const { getGitEmoji } = require('../modules/emojiModule.js')
 const profiles = 'server/data/profiles.json'
 const storage = multer.diskStorage({
   destination: 'public/backgrounds/',
@@ -35,10 +36,13 @@ router
   if (profile != undefined){
     const data = await getApiProfileData(profile.username)
     const projectData = await data.user.repositories.nodes
+    const emoji = getGitEmoji(data.user.status.emoji.slice(1, -1))
+    console.log(emoji)
     res.render('welcome', {
       profile,
-      user: username,
+      user: data.user,
       userStatus: data.user.status,
+      gitEmoji: emoji.emoji,
       friends: data.user.following.totalCount,
       followers: data.user.following.nodes,
       projects: projectData

@@ -28,6 +28,7 @@
 
 body {
 	background-color: var(--background-color, var(--orange));
+	background-image: var(--background-image);
 	color: var(--white);
 	min-height: 100vh;
 	position: relative;
@@ -57,7 +58,7 @@ img {
 
 .header-white {
 	background-color: var(--white);
-	color: var(--orange);
+	color: var(--text-color, var(--orange));
 	border-radius: 0.4rem;
 	display: flex;
 	align-items: center;
@@ -69,7 +70,7 @@ img {
 }
 
 .header-link {
-	color: var(--orange);
+	color: var(--text-color, var(--orange));
 	font-size: 1.2rem;
 	margin-right: 2rem;
 }

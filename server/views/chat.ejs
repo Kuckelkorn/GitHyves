@@ -1,0 +1,37 @@
+<%- include('./partials/head') %>
+<%- include('./partials/header') %>
+<body>
+    <main>
+        <ul id="messages">
+            <% if (chats) { %>
+                <% chats.forEach(chat => { %>
+                <% if (chat.username === username.login) { %>
+                <div class="outgoing">
+                    <div class="metadata">
+                        <span class="author">You</span>
+                        <span class="date"><%= chat.date %></span>
+                    </div>
+                    <p><%= chat.message %></p>
+                </div>
+                <% } else { %>
+                <div class="incoming">
+                    <div class="metadata">
+                        <span class="author"><%= chat.username %></span>
+                        <span class="date"><%= chat.date %></span>
+                    </div>
+                    <p><%= chat.message %></p>
+                </div>
+            <% }})} %>
+        </ul>
+        <form action="/message" id="form" method="post">
+            <input type="text" name="message" autocomplete="off" id="input">
+            <input type="hidden" value="<%= username.login %>" name="username" id="username">
+            <button type="submit" id="submit">Send</button>
+        </form>
+        <p id="typing"></p>
+    </main>
+      <%- include('./partials/foot') %>
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/scripts/script.js"></script>

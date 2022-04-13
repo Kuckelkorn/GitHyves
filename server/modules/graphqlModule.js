@@ -7,8 +7,11 @@ const graphqlAuth = graphql.defaults({
 const getApiProfileData = async (user) => {
   const data = await graphqlAuth(`{
     user(login: "${user}") {
+<<<<<<< HEAD
       login
       avatarUrl
+=======
+>>>>>>> Jody
       status {
         message
         emojiHTML

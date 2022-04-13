@@ -63,6 +63,8 @@ img {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	gap: 1rem;
+	/* position: sticky;
+	top: 0; */
 }
 
 .button-orange {
@@ -128,14 +130,14 @@ h1 {
 }
 
 #profile section:first-of-type {
-    width: 10em;
-    aspect-ratio: 1/1;
+	width: 10em;
+	aspect-ratio: 1/1;
 }
 
 #profile section:first-of-type img {
-    width: 10em;
-    aspect-ratio: 1/1;
-    object-fit: cover;
+	width: 10em;
+	aspect-ratio: 1/1;
+	object-fit: cover;
 }
 .login h2 {
 	font-family: "Comic Sans MS";
@@ -183,6 +185,7 @@ h1 {
 /* Profile */
 
 .welcome {
+	padding-top: 2rem;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 2rem;
@@ -250,26 +253,32 @@ h1 {
 } */
 
 .repositories article {
-    background-color: white;
-    margin: 1em;
-    padding: 1em;
-    border-radius: 1em;
+	background-color: var(--white);
+	color: var(--grey);
+	margin: 0 0 1rem 0;
+	padding: 1em;
+	border-radius: 0.4em;
+}
+
+.repositories h3 {
+	color: #150b8b;
 }
 
 .repositories article p {
-  color: #150b8b;
-  margin-top: 0.2em;
+	margin-top: 0.4em;
 }
 
 .repositories ul {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1em;
-  width: 60%;
+	display: flex;
+	margin-top: 1em;
+	width: 60%;
 }
 
 .repositories ul li {
-  padding: 0.5em;
-  border: 1px solid black;
-  border-radius: 3em;
+	margin-right: 1rem;
+	font-size: 0.9rem;
+	padding: 0.5em 0.8em;
+	border: 1px solid var(--grey);
+	border-radius: 3em;
+	color: var(--grey);
 }

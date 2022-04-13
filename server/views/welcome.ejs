@@ -47,7 +47,9 @@
           <li class="vriend">
             <img src="<%= follower.avatarUrl %>" alt="profielfoto van <%= follower.name %>" />
             <!-- Nummer van repositories -->
-            <p><%= follower.login %> (<%= follower.following.totalCount %>)</p>
+            <a href="<%= follower.login %>"
+              ><%= follower.login %> (<%= follower.following.totalCount %>)</a
+            >
           </li>
           <% }) %>
         </ul>

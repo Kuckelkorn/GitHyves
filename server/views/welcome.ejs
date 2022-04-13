@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<%- include('./partials/head') %> <%- include('./partials/header') %> 
-<% if(custom){ %>
-<body style="--custom-color: <%= custom.textColor %>">
-<%} else { %>
-<body>
-<% } %>
-    <main class="welcome">
-      <section class="user">
-        <img src="<%= profile.user.avatarUrl %>" alt="gebruikers profielfoto" />
-        <h2><%= profile.user.login %></h2>
-        <% if(profile.userStatus){ %>
-        <div>
-          <span><%= profile.emoji %></span>
-          <p><%= profile.userStatus.message %></p>
-        </div>
-        <% } %>
-        <a class="button button-orange" href="/profile/<%= profile.user.login %>/edit"
-          >Pimp mijn profiel</a
-        >
-      </section>
-=======
 <%- include('./partials/head') %> <%- include('./partials/header') %> <%
 if(custom.textColor){ %>
 <body
@@ -51,11 +28,6 @@ if(custom.textColor){ %>
 					>Pimp mijn profiel</a
 				>
 			</section>
->>>>>>> 9c899ebe780748e22d499b32732f1d3387257c21
-=======
-<%- include('./partials/head') %>
-<%- include('./partials/header') %>
->>>>>>> Jody
 
 			<section class="repositories">
 				<!-- <h2>Repositories</h2> -->
@@ -97,6 +69,4 @@ if(custom.textColor){ %>
 				</ul>
 			</section>
 		</main>
-		<%- include('./partials/foot') %>
-	</body>
 </body>

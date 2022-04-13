@@ -1,3 +1,9 @@
 {
-  "chats": []
+  "chats": [
+    {
+      "message": "hallo",
+      "username": "zainuwachtig",
+      "date": "17:02 - 13/04"
+    }
+  ]
 }

@@ -10,8 +10,8 @@ const getApiProfileData = async (user) => {
       login
       avatarUrl
       status {
-        emoji
         message
+        emojiHTML
       }
       following(first: 10) {
         nodes {

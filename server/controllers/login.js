@@ -36,13 +36,13 @@ router
   if (profile != undefined){
     const data = await getApiProfileData(profile.username)
     const projectData = await data.user.repositories.nodes
-    const emoji = getGitEmoji(data.user.status.emoji.slice(1, -1))
-    console.log(emoji)
-    res.render('welcome', {
+    const status = await data.user.status
+    const emoji = getGitEmoji(status)
+     res.render('welcome', {
       profile,
       user: data.user,
       userStatus: data.user.status,
-      gitEmoji: emoji.emoji,
+      emoji: emoji,
       friends: data.user.following.totalCount,
       followers: data.user.following.nodes,
       projects: projectData
@@ -81,7 +81,6 @@ router
   passport.authenticate('github', { failureRedirect: '/login' }), 
   async (req, res) => {
     const profile = await checkForProfile(req.user.username, profiles)
-    console.log(profile)
     if (profile != undefined){
       res.redirect(`/profile/${req.user.username}`)
     } else {

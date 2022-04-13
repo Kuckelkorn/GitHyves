@@ -69,27 +69,33 @@
 	</a>
 </header>
 
-<main>
+<main class="welcome">
 	<section class="user">
-		<!-- profiel foto -->
-		<img src="" alt="gebruikers profielfoto" />
+		<img src="<%= user.avatar_url %>" alt="gebruikers profielfoto" />
 		<p><%= user.login %></p>
-		<div class="emotie">
-			<!-- hier moet emotie komen van git  -->
+		<% if(userStatus){ %>
+		<div>
+			<span><%= userStatus.emoji %></span>
+			<p><%= userStatus.message %></p>
 		</div>
+		<% } %>
 	</section>
 
 	<section class="repositories">
 		<% projects.forEach(project => { %>
 		<article>
-			<h2><%= project.name %></h2>
-			<p><%= project.description %></p>
 			<a
 				class="github"
 				href="<%= project.url %>"
 				alt="Watch <%= project.name %> on GitHub"
-				><span>Browse on GitHub</span></a
+				><h2><%= project.name%></h2></a
 			>
+			<p><%= project.description %></p>
+			<ul>
+				<% project.languages.nodes.forEach(language => { %>
+				<li><%= language.name %></li>
+				<% }) %>
+			</ul>
 		</article>
 		<% }) %>
 	</section>
@@ -128,14 +134,20 @@
 	</section>
 
 	<section class="vrienden">
-		<!-- Deze div herhalen voor elke vriend  -->
+		<% followers.forEach(follower => { %>
 		<div class="vriend1">
-			<!-- profiel foto -->
-			<img src="user image" alt="profiel foto vriend" />
+			<img
+				src="<%= follower.avatarUrl %>"
+				alt="profielfoto van <%= follower.name %>"
+			/>
 			<!-- Nummer van repositories -->
-			<p></p>
+			<p><%= follower.login %></p>
+			<p><%= follower.following.totalCount %></p>
 		</div>
+		<% }) %>
 	</section>
+
+	<a href="/logout">log out</a>
 
 	<%- include('./partials/foot') %>
 </main>

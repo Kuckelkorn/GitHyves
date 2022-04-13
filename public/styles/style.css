@@ -188,3 +188,33 @@ h1 {
   display: block;
   margin-right: 0.5rem;
 }
+
+/* .repositories {
+  height: 100vh;
+  overflow: scroll;
+} */
+
+.repositories article {
+    background-color: white;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.repositories article p {
+  color: #150b8b;
+  margin-top: 0.2em;
+}
+
+.repositories ul {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+  width: 60%;
+}
+
+.repositories ul li {
+  padding: 0.5em;
+  border: 1px solid black;
+  border-radius: 3em;
+}

@@ -75,10 +75,12 @@
   <section class="user">
     <img src="<%= user.avatar_url %>" alt="gebruikers profielfoto" />
     <p><%= user.login %></p>
+    <% if(userStatus){ %>
     <div>
       <span><%= userStatus.emoji %></span>
       <p><%= userStatus.message %></p>
     </div>
+    <% } %>
   </section>
 
   <section class="repositories">

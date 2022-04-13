@@ -5,8 +5,8 @@
     <p>Always in touch with your friends</p>
   </div>
   <div>
-    <a class="button button-orange" href="">Mijn profiel</a>
-    <a class="button button-orange" href="">Feed</a>
+    <a class="button" href="">Mijn profiel</a>
+    <a class="button" href="">Feed</a>
   </div>
   <a class="github-logo" href=""
     ><svg
@@ -14,6 +14,8 @@
       xmlns:xlink="http://www.w3.org/1999/xlink"
       xmlns:svgjs="http://svgjs.com/svgjs"
       version="1.1"
+      width="512"
+      height="512"
       x="0"
       y="0"
       viewBox="0 0 24 24"
@@ -69,68 +71,20 @@
   </a>
 </header>
 
-<main class="welcome" data-color="<%= profile.textColor %>">
-  <section class="user">
-    <img src="<%= user.avatar_url %>" alt="gebruikers profielfoto" />
-    <h2><%= user.login %></h2>
-    <% if(userStatus){ %>
-    <div>
-      <span><%= userStatus.emoji %></span>
-      <p><%= userStatus.message %></p>
-    </div>
-    <% } %>
-    <a class="button button-orange" href="">Pimp mijn profiel</a>
-    <a class="logout" href="/logout">log out</a>
-  </section>
+<main>
+  <form action="/profile/<%= user.username%>/edit" method="POST" enctype="multipart/form-data">
+    <fieldset>
+      <label>Kies tekstkleur
+        <input name="tekstkleur" type="color">
+      </label>
+    </fieldset>
+    <fieldset>
+      <label>Achtergrond
+        <input type="file" name="image">
+      </label>
+    </fieldset>
+    <button type="submit">Pimp je profiel</button>
+  </form>
 
-  <section class="repositories">
-    <!-- <h2>Repositories</h2> -->
-    <% projects.forEach(project => { %>
-    <article>
-      <a class="github" href="<%= project.url %>" alt="Watch <%= project.name %> on GitHub"
-        ><h3><%= project.name%></h3></a
-      >
-      <p><%= project.description %></p>
-      <ul>
-        <% project.languages.nodes.forEach(language => { %>
-        <li><%= language.name %></li>
-        <% }) %>
-      </ul>
-    </article>
-    <% }) %>
-  </section>
-
-  <section class="vrienden">
-    <h2>Vrienden (<%= friends %>)</h2>
-    <ul>
-      <% followers.forEach(follower => { %>
-      <li class="vriend">
-        <img src="<%= follower.avatarUrl %>" alt="profielfoto van <%= follower.name %>" />
-        <!-- Nummer van repositories -->
-        <p><%= follower.login %> (<%= follower.following.totalCount %>)</p>
-      </li>
-      <% }) %>
-    </ul>
-  </section>
-  <section class="wijzig-profiel">
-    <!-- div voor de schaduw -->
-    <div>
-      <a href="/profile/<%= user.login %>/edit"><h3>Pimp mijn profiel!</h3></a>
-    </div>
-    <ul>
-      <li>
-        <button type="button" class="tk_btn" id="btnTk">Tekst kleur</button>
-      </li>
-      <li>
-        <button type="button" class="font_btn" id="btnFont">Font</button>
-      </li>
-      <li>
-        <button type="button" class="achtergrond_btn" id="btnAchtergrond">Achtergrond</button>
-      </li>
-      <li>
-        <button type="button" class="pins_btn" id="btnPins">Pins</button>
-      </li>
-    </ul>
-  </section>
+  <%- include('./partials/foot') %>
 </main>
-<%- include('./partials/foot') %>

@@ -3,6 +3,7 @@ const path = require('path')
 const router = require('./server/controllers/login')
 const session = require('express-session')
 const express = require('express')
+const bodyParser = require('body-parser')
 const ejs = require('ejs')
 const compression = require('compression')
 const passport = require('passport')
@@ -27,6 +28,7 @@ app
     resave: false,
     saveUninitialized: true
   }))
+  .use(bodyParser.urlencoded({ extended: true }))
   .use(passport.initialize())
   .use(passport.session())
   .use('*', saveLocal)

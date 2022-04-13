@@ -32,24 +32,23 @@ router
 //successful auth: route
 .get("/profile/:username", async (req, res) => {
   const username = req.params.username
-  const profile = await checkForProfile(username, profiles)
-  if (profile != undefined){
-    const data = await getApiProfileData(profile.username)
-    const projectData = await data.user.repositories.nodes
-    const status = await data.user.status
-    const emoji = getGitEmoji(status)
-     res.render('welcome', {
-      profile,
-      user: data.user,
-      userStatus: data.user.status,
-      emoji: emoji,
-      friends: data.user.following.totalCount,
-      followers: data.user.following.nodes,
-      projects: projectData
-    })
-  } else {
-    res.render('error')
+  const data = await getApiProfileData(username)
+  const projectData = await data.user.repositories.nodes
+  const status = await data.user.status
+  const emoji = getGitEmoji(status)
+  const profile = {
+    user: data.user,
+    userStatus: data.user.status,
+    emoji: emoji,
+    friends: data.user.following.totalCount,
+    followers: data.user.following.nodes,
+    projects: projectData
   }
+  const custom = await checkForProfile(username, profiles)
+  res.render('welcome', {
+    profile,
+    custom
+  })
 })
 
 .get('/profile/:username/edit', ensureAuthenticated, (req, res) =>{
@@ -60,6 +59,9 @@ router
 .post('/profile/:username/edit', ensureAuthenticated, upload.single('image'), (req, res) => {
   const user = res.locals.user
   const path = `${req.file.path}`
+  if (path == undefined){
+    path = ''
+  }
   const profile = {
     username: `${user.username}`,
     textColor: req.body.tekstkleur,

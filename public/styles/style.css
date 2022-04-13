@@ -27,7 +27,7 @@
 }
 
 body {
-	background-color: var(--orange);
+	background-color: var(--custom-color, var(--orange));
 	color: var(--white);
 	min-height: 100vh;
 	position: relative;

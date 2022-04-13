@@ -1,22 +1,26 @@
 <%- include('./partials/head') %> <%- include('./partials/header') %>
-  <main class="welcome" data-color="<%= profile.textColor %>">
+<% if(custom){ %>
+<body style="--custom-color: <%= custom.textColor %>">
+<%} else { %>
+<body>
+<% } %> 
+  <main class="welcome">
     <section class="user">
-      <img src="<%= user.avatarUrl %>" alt="gebruikers profielfoto" />
-      <h2><%= user.login %></h2>
-      <% if(userStatus){ %>
+      <img src="<%= profile.user.avatarUrl %>" alt="gebruikers profielfoto" />
+      <h2><%= profile.user.login %></h2>
+      <% if(profile.userStatus){ %>
       <div>
-        <span><%= emoji %></span>
-        <p><%= userStatus.message %></p>
+        <span><%= profile.gitEmoji %></span>
+        <p><%= profile.userStatus.message %></p>
       </div>
       <% } %>
-      <a class="button button-orange" href="/profile/<%= user.login %>/edit">Pimp mijn profiel</a>
-      <!-- <a class="logout" href="/logout">log out</a> -->
-    </section>
+      <a class="button button-orange" href="/profile/<%= profile.user.login %>/edit">Pimp mijn profiel</a>
+  </section>
 
-    <section class="repositories">
+  <section class="repositories">
       <!-- <h2>Repositories</h2> -->
-      <% projects.forEach(project => { %>
-      <article>
+    <% profile.projects.forEach(project => { %>
+    <article>
         <a
           class="github"
           target="_blank"
@@ -37,17 +41,14 @@
     <section class="vrienden">
       <h2>Vrienden</h2>
       <ul>
-        <% followers.forEach(follower => { %>
+        <% profile.followers.forEach(follower => { %>
         <li class="vriend">
           <img src="<%= follower.avatarUrl %>" alt="profielfoto van <%= follower.name %>" />
           <!-- Nummer van repositories -->
-          <a href="/profile/<%= follower.login %>">
-            <%= follower.login %> (<%= follower.following.totalCount %>)
-          </a>
+          <p><%= follower.login %> (<%= follower.following.totalCount %>)</p>
         </li>
         <% }) %>
       </ul>
     </section>
   </main>
-  <%- include('./partials/foot') %>
-</main>
+<%- include('./partials/foot') %>

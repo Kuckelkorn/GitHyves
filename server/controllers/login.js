@@ -36,6 +36,7 @@ router
   const projectData = await data.user.repositories.nodes
   const status = await data.user.status
   const emoji = getGitEmoji(status)
+  console.log(emoji)
   const profile = {
     user: data.user,
     userStatus: data.user.status,

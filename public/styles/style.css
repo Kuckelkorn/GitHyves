@@ -15,6 +15,9 @@
 	--white: #fff;
 	--grey: #666;
 	--blue: #150b8b;
+
+	--color-incoming: #fc6b66;
+	--color-outgoing: #f6c053;
 }
 
 *,
@@ -287,4 +290,80 @@ h1 {
 	border: 1px solid var(--grey);
 	border-radius: 3em;
 	color: var(--grey);
+}
+
+.chatbox {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 50%;
+}
+
+.chatbox .outgoing, .chatbox .incoming {
+	padding: 1em;
+	/* border: 1px solid var(--blue); */
+	border-radius: 1em;
+	margin-bottom: 2.5em;
+	position: relative;
+}
+
+.chatbox .incoming {
+	background-color: var(--color-incoming);
+}
+
+.chatbox .incoming::after {
+	height: 0;
+	width: 0;
+	content: "";
+	border-left: 24px solid var(--color-incoming);
+	border-right: 12px solid transparent;
+	border-top: 12px solid var(--color-incoming);
+	border-bottom: 20px solid transparent;
+	position: absolute;
+	bottom: -1em;
+}
+
+.chatbox .outgoing {
+	background-color: var(--color-outgoing);
+}
+
+/* Deze driehoek moet nog gefixt worden maar hoofd draait */
+.chatbox .outgoing::after {
+	height: 0;
+	width: 0;
+	content: "";
+	border-left: 12px solid transparent;
+	border-right: 24px solid var(--color-outgoing);
+	border-top: 12px solid var(--color-outgoing);
+	border-bottom: 20px solid transparent;
+	position: absolute;
+	bottom: -1em;
+	right: 1em;
+}
+
+.chatbox input[type="text"] {
+	padding: 0.3em;
+	border-radius: 0.3em;
+	border: 1px solid white;
+}
+
+.chatbox input[type="text"]:focus {
+	outline: 1px solid black;
+	outline-offset: 3px;
+}
+
+.chatbox button {
+	width: 2em;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+	background-color: lightgreen;
+	border: none;
+}
+
+.chatbox button svg {
+	width: 1em;
+	height: 1em;
+	align-self: center;
+	text-align: center;
+	fill: white;
 }

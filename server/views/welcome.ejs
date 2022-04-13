@@ -1,9 +1,9 @@
 <%- include('./partials/head') %> <%- include('./partials/header') %> 
-<% if(custom.textColor){ %>
+<% if(custom){ %>
 <body style="--custom-color: <%= custom.textColor %>">
 <%} else { %>
 <body>
-    <% } %>
+<% } %>
     <main class="welcome">
       <section class="user">
         <img src="<%= profile.user.avatarUrl %>" alt="gebruikers profielfoto" />

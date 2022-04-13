@@ -1,11 +1,15 @@
 [
 	{
-		"username": "JoeriBouwman25",
+		"username": "joeriBouwman25",
 		"textColor": "#3f44bb",
-		"backgroundColor": "#ff0000",
 		"image": "public/backgrounds/mb.jpeg"
 	},
-	{ "username": "zainuwachtig" },
+	{
+		"username": "zainuwachtig",
+		"textColor": "#0057a8",
+		"backgroundColor": "#ff0000",
+		"image": "public/backgrounds/zain.jpeg"
+	},
 	{
 		"username": "Kuckelkorn",
 		"textColor": "#ff23e2",
@@ -14,8 +18,8 @@
 	},
 	{
 		"username": "MarkvHeusden",
-		"textColor": "#0057a8",
-		"backgroundColor": "#ff0000",
-		"image": "public/backgrounds/zain.jpeg"
+		"textColor": "#1dc650",
+		"backgroundColor": "#d508d9",
+		"image": "public/backgrounds/xp-bg.jpg"
 	}
 ]

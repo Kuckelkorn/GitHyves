@@ -14,6 +14,7 @@
 	--orange: #ff8a0e;
 	--white: #fff;
 	--grey: #666;
+	--blue: #150b8b;
 }
 
 *,
@@ -65,6 +66,12 @@ img {
 	gap: 1rem;
 	/* position: sticky;
 	top: 0; */
+}
+
+.header-link {
+	color: var(--orange);
+	font-size: 1.2rem;
+	margin-right: 2rem;
 }
 
 .button-orange {
@@ -129,16 +136,6 @@ h1 {
 	right: 10vw;
 }
 
-#profile section:first-of-type {
-	width: 10em;
-	aspect-ratio: 1/1;
-}
-
-#profile section:first-of-type img {
-	width: 10em;
-	aspect-ratio: 1/1;
-	object-fit: cover;
-}
 .login h2 {
 	font-family: "Comic Sans MS";
 	font-size: 2rem;
@@ -182,6 +179,21 @@ h1 {
 	margin-right: 0.5rem;
 }
 
+.logout {
+	color: var(--grey);
+	text-align: center;
+	display: block;
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+}
+
+.login:hover,
+.button:hover,
+.logout:hover,
+.header-link:hover {
+	opacity: 0.9;
+}
+
 /* Profile */
 
 .welcome {
@@ -214,9 +226,6 @@ h1 {
 	text-align: center;
 }
 
-.repositories {
-}
-
 .vrienden {
 	background-color: var(--white);
 	color: var(--orange);
@@ -236,9 +245,10 @@ h1 {
 	margin-bottom: 1rem;
 }
 
-.vriend p {
+.vriend a {
 	font-weight: 500;
 	font-size: 1.2rem;
+	color: var(--orange);
 }
 
 .vriend img {
@@ -246,11 +256,6 @@ h1 {
 	border-radius: 2rem;
 	margin-right: 1rem;
 }
-
-/* .repositories {
-  height: 100vh;
-  overflow: scroll;
-} */
 
 .repositories article {
 	background-color: var(--white);
@@ -261,7 +266,7 @@ h1 {
 }
 
 .repositories h3 {
-	color: #150b8b;
+	color: var(--blue);
 }
 
 .repositories article p {

@@ -11,6 +11,15 @@ const getApiData = async (user) => {
         emoji
         message
       }
+      following(first: 10) {
+        nodes {
+          avatarUrl
+          login
+          following {
+            totalCount
+          }
+        }
+      }
       repositories(first: 10) {
         nodes {
           name

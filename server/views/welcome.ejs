@@ -119,13 +119,14 @@
   </section>
 
   <section class="vrienden">
-    <!-- Deze div herhalen voor elke vriend  -->
+    <% followers.forEach(follower => { %>
     <div class="vriend1">
-      <!-- profiel foto -->
-      <img src="user image" alt="profiel foto vriend" />
+      <img src="<%= follower.avatarUrl %>" alt="profielfoto van <%= follower.name %>" />
       <!-- Nummer van repositories -->
-      <p></p>
+      <p><%= follower.login %></p>
+      <p><%= follower.following.totalCount %></p>
     </div>
+    <% }) %>
   </section>
 
   <a href="/logout">log out</a>

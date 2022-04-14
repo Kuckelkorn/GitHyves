@@ -30,16 +30,15 @@ router
 })
 
 //successful auth: route
-.get("/profile/:username", async (req, res) => {
+.get("/profile/:username", ensureAuthenticated, async (req, res) => {
   const username = req.params.username
   const loggedIn = () => {
-    if (res.locals.user.username != undefined){
+    if (res.locals.user.username != undefined || res.locals.user.username != null){
       return res.locals.user.username
     } else {
-      return ""
+      return " "
     }
   }
-  console.log(loggedIn())
   const data = await getApiProfileData(username)
   const projectData = await data.user.repositories.nodes
   const status = await data.user.status

@@ -1,13 +1,6 @@
-<%- include('./partials/head') %> <%- include('./partials/header') %> <% if(custom){ %>
-<body
-  style="<%= custom.backgroundColor ? '--background-color:'  + custom.backgroundColor + ';'  : '' %>
-<%= custom.textColor ? '--text-color:' + custom.textColor + ';' : '' %>
-<%= custom.image ? '--background-image:' + 'url(' + custom.image.replace('public','') + ')' : '' %>
-"
->
-  <%} else { %>
-  <body>
-    <% } %>
+<%- include('./partials/head') %> <%- include('./partials/header') %>
+  
+  <body style="background-color: <%= profile.styles.backgroundColor %>;" >
     <main class="welcome">
       <section class="user">
         <img src="<%= profile.user.avatarUrl %>" alt="gebruikers profielfoto" />

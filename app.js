@@ -4,6 +4,7 @@ const router = require('./server/controllers/login')
 const chatRoute = require('./server/controllers/chat')
 const session = require('express-session')
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 const fs = require('fs')
 const express = require('express')
 const ejs = require('ejs')
@@ -16,8 +17,10 @@ require('./server/modules/passportModule.js')(passport);
 const app = express();
 const server = http.createServer(app)
 const port = process.env.PORT || 5500
+const url = process.env.DB_URL
+
 const io = new Server(server)
-require('dotenv').config()
+
 
 app
   .use(compression())
@@ -42,6 +45,11 @@ app
   .use(express.urlencoded({ extended: true }))
   .use(router)
   .use(chatRoute)
+
+  // Connection with database
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+.then((result) => console.log('connected to mongoDB'))
+.catch((err) => console.log(err))
 
 dateFormat.masks.chatFormat = 'HH:MM - dd/mm'
 

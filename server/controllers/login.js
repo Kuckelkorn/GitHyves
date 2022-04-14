@@ -39,6 +39,7 @@ router
       return ""
     }
   }
+  console.log(loggedIn())
   const data = await getApiProfileData(username)
   const projectData = await data.user.repositories.nodes
   const status = await data.user.status
@@ -50,7 +51,7 @@ router
     friends: data.user.following.totalCount,
     followers: data.user.following.nodes,
     projects: projectData,
-    loggedIn: res.locals.user.username
+    loggedIn: loggedIn()
   }
   const custom = await checkForProfile(username, profiles)
   res.render('welcome', {

@@ -1,75 +1,64 @@
-<%- include('./partials/head') %> <%- include('./partials/header') %> <%
-if(custom.textColor){ %>
+<%- include('./partials/head') %> <%- include('./partials/header') %> <% if(custom){ %>
 <body
-style="<%= custom.backgroundColor ? '--background-color:'  + custom.backgroundColor + ';'  : '' %>
+  style="<%= custom.backgroundColor ? '--background-color:'  + custom.backgroundColor + ';'  : '' %>
 <%= custom.textColor ? '--text-color:' + custom.textColor + ';' : '' %>
 <%= custom.image ? '--background-image:' + 'url(' + custom.image.replace('public','') + ')' : '' %>
 "
 >
-	<%} else { %>
-	<body>
-		<% } %>
-		<main class="welcome">
-			<section class="user">
-				<img
-					src="<%= profile.user.avatarUrl %>"
-					alt="gebruikers profielfoto"
-				/>
-				<h2><%= profile.user.login %></h2>
-				<% if(profile.userStatus){ %>
-				<div>
-					<span><%= profile.emoji %></span>
-					<p><%= profile.userStatus.message %></p>
-				</div>
-				<% } %>
-        <% if(profile.loggedIn === profile.user.login){ %>
-        <a
-					class="button button-orange"
-					href="/profile/<%= profile.user.login %>/edit"
-					>Pimp mijn profiel</a
-				>
+  <%} else { %>
+  <body>
+    <% } %>
+    <main class="welcome">
+      <section class="user">
+        <img src="<%= profile.user.avatarUrl %>" alt="gebruikers profielfoto" />
+        <h2><%= profile.user.login %></h2>
+        <% if(profile.userStatus){ %>
+        <div>
+          <span><%= profile.emoji %></span>
+          <p><%= profile.userStatus.message %></p>
+        </div>
+        <% } %> <% if(profile.loggedIn === profile.user.login){ %>
+        <a class="button button-orange" href="/profile/<%= profile.user.login %>/edit"
+          >Pimp mijn profiel</a
+        >
         <% } %>
-			</section>
+      </section>
 
-			<section class="repositories">
-				<!-- <h2>Repositories</h2> -->
-				<% profile.projects.forEach(project => { %>
-				<article>
-					<a
-						class="github"
-						target="_blank"
-						href="<%= project.url %>"
-						alt="Watch <%= project.name %> on GitHub"
-						><h3><%= project.name%></h3></a
-					>
-					<p><%= project.description %></p>
-					<ul>
-						<% project.languages.nodes.forEach(language => { %>
-						<li><%= language.name %></li>
-						<% }) %>
-					</ul>
-				</article>
-				<% }) %>
-			</section>
+      <section class="repositories">
+        <!-- <h2>Repositories</h2> -->
+        <% profile.projects.forEach(project => { %>
+        <article>
+          <a
+            class="github"
+            target="_blank"
+            href="<%= project.url %>"
+            alt="Watch <%= project.name %> on GitHub"
+            ><h3><%= project.name%></h3></a
+          >
+          <p><%= project.description %></p>
+          <ul>
+            <% project.languages.nodes.forEach(language => { %>
+            <li><%= language.name %></li>
+            <% }) %>
+          </ul>
+        </article>
+        <% }) %>
+      </section>
 
-			<section class="vrienden">
-				<h2>Vrienden</h2>
-				<ul>
-					<% profile.followers.forEach(follower => { %>
-					<li class="vriend">
-						<img
-							src="<%= follower.avatarUrl %>"
-							alt="profielfoto van <%= follower.name %>"
-						/>
-						<!-- Nummer van repositories -->
-						<a href="<%= follower.login %>"
-							><%= follower.login %> (<%=
-							follower.following.totalCount %>)</a
-						>
-					</li>
-					<% }) %>
-				</ul>
-			</section>
-		</main>
-	</body>
+      <section class="vrienden">
+        <h2>Vrienden</h2>
+        <ul>
+          <% profile.followers.forEach(follower => { %>
+          <li class="vriend">
+            <img src="<%= follower.avatarUrl %>" alt="profielfoto van <%= follower.name %>" />
+            <!-- Nummer van repositories -->
+            <a href="<%= follower.login %>"
+              ><%= follower.login %> (<%= follower.following.totalCount %>)</a
+            >
+          </li>
+          <% }) %>
+        </ul>
+      </section>
+    </main>
+  </body>
 </body>

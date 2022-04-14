@@ -76,6 +76,6 @@ De makers van GitHyves zijn: <br>
 [*Remco Kuckelkorn*](https://github.com/Kuckelkorn) <br>
 [*Zain Butt*](https://github.com/zainuwachtig) <br>
 [*Jody Lorist*](https://github.com/jody29) <br>
-[*Joery Bouwman*](https://github.com/joeriBouwman25)
+[*Joerie Bouwman*](https://github.com/joeriBouwman25)
 
 

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%- include('./partials/head') %> <%- include('./partials/header') %> <%
 if(custom.textColor){ %>
 <body
@@ -10,14 +9,6 @@ if(custom.textColor){ %>
 	<%} else { %>
 	<body>
 		<% } %>
-=======
-<%- include('./partials/head') %>
-<body style="<%= custom.backgroundColor ? '--background-color:'  + custom.backgroundColor + ';'  : '' %>
-	 <%= custom.textColor ? '--text-color:' + custom.textColor + ';' : '' %>
-	 <%= custom.image ? '--background-image:' + 'url(' + custom.image.replace('public','') + ')' : '' %>
-   "> 
-   <%- include('./partials/header') %>
->>>>>>> 916902a958c1b8421724ac80947c53d54d675984
 		<main class="welcome">
 			<section class="user">
 				<img
@@ -79,8 +70,4 @@ if(custom.textColor){ %>
 			</section>
 		</main>
 	</body>
-<<<<<<< HEAD
 </body>
-=======
-</html>
->>>>>>> 916902a958c1b8421724ac80947c53d54d675984

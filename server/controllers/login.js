@@ -79,7 +79,7 @@ router
     res.render('welcome', {
       profile: custom
     })
-  } else {
+  }  else {
     Users.create(profile)
     res.render('welcome', {
       profile
@@ -123,6 +123,7 @@ function ensureAuthenticated(req, res, next) {
 
 const checkForProfile = async (username) => {
   const allProfiles = await Users.find({}).lean()
+
   const myProfile = allProfiles.find((profile) => profile.user.login.includes(username))
     return myProfile
 

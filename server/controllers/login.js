@@ -32,18 +32,25 @@ router
 //successful auth: route
 .get("/profile/:username", async (req, res) => {
   const username = req.params.username
+  const loggedIn = () => {
+    if (res.locals.user.username != undefined){
+      return res.locals.user.username
+    } else {
+      return ""
+    }
+  }
   const data = await getApiProfileData(username)
   const projectData = await data.user.repositories.nodes
   const status = await data.user.status
   const emoji = getGitEmoji(status)
-  console.log(emoji)
   const profile = {
     user: data.user,
     userStatus: data.user.status,
     emoji: emoji,
     friends: data.user.following.totalCount,
     followers: data.user.following.nodes,
-    projects: projectData
+    projects: projectData,
+    loggedIn: res.locals.user.username
   }
   const custom = await checkForProfile(username, profiles)
   res.render('welcome', {

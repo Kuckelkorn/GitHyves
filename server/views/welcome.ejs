@@ -17,11 +17,13 @@
 					<p><%= profile.userStatus.message %></p>
 				</div>
 				<% } %>
-				<a
+        <% if(profile.loggedIn === profile.user.login){ %>
+        <a
 					class="button button-orange"
 					href="/profile/<%= profile.user.login %>/edit"
 					>Pimp mijn profiel</a
 				>
+        <% } %>
 			</section>
 
 			<section class="repositories">

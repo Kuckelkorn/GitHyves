@@ -1,10 +1,10 @@
 <%- include('./partials/head') %> <%- include('./partials/header') %> <%
 if(custom.textColor){ %>
 <body
-	style="
-		--background-color: <%= custom.backgroundColor ? custom.backgroundColor : '#ff8a0e' %>;
-		--text-color: <%= custom.textColor ? custom.textColor : '#ff8a0e' %>;
-	"
+style="<%= custom.backgroundColor ? '--background-color:'  + custom.backgroundColor + ';'  : '' %>
+<%= custom.textColor ? '--text-color:' + custom.textColor + ';' : '' %>
+<%= custom.image ? '--background-image:' + 'url(' + custom.image.replace('public','') + ')' : '' %>
+"
 >
 	<%} else { %>
 	<body>

@@ -180,6 +180,14 @@ h1 {
 	margin-right: 0.5rem;
 }
 
+.login div {
+	margin: 1em;
+}
+
+.login div p {
+	font-size: 1.1em;
+}
+
 .logout {
 	color: var(--grey);
 	text-align: center;
@@ -287,4 +295,65 @@ h1 {
 	border: 1px solid var(--grey);
 	border-radius: 3em;
 	color: var(--grey);
+}
+
+#messages {
+	display: flex;
+	width: 100%;
+	background-color: white;
+	flex-direction: column;
+	color: black;
+	padding: 1em;
+	height: 100%;
+	overflow-y: scroll;
+	border-radius: 0.4em 0.4em 0 0;
+}
+
+.outgoing,
+.incoming {
+	margin-bottom: 1em;
+	padding: 1em;
+}
+
+.incoming {
+	background-color: #ff8a0e;
+	color: white;
+	width: fit-content;
+	border-radius: 1em 1em 1em 0;
+}
+
+.metadata {
+	font-weight: bold;
+}
+
+.outgoing {
+	margin-left: auto;
+	background-color: rgb(200, 200, 200);
+	border-radius: 1em 1em 0 1em;
+}
+
+#form {
+	display: flex;
+	width: 100%;
+	padding: 1em;
+	background-color: rgb(202, 202, 202);
+	border-radius: 0 0 0.4em 0.4em;
+}
+
+#input {
+	width: 100%;
+	border: none;
+	padding: 0 1em;
+}
+
+#submit {
+	padding: 1em 2em;
+	border: 0;
+	background-color: #ff8a0e;
+	color: white;
+	font-weight: bold;
+}
+
+#chatPage {
+	height: 76vh;
 }

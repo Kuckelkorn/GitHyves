@@ -1,7 +1,7 @@
 <%- include('./partials/head') %>
 	<body>
 		<%- include('./partials/header') %>
-		<main>
+		<main id="chatPage">
 			<ul id="messages">
 				<% if (chats) { %> <% chats.forEach(chat => { %> <% if
 				(chat.username === username.login) { %>

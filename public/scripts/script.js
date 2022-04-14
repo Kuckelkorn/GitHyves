@@ -34,6 +34,7 @@ socket.on('chat message', data => {
   </div>
   <p>${data.message}</p>
   `
+  item.classList.add('outgoing')
   messages.appendChild(item)
   window.scrollTo(0, document.body.scrollHeight)
 })

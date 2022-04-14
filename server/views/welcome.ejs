@@ -1,6 +1,9 @@
 <%- include('./partials/head') %> <%- include('./partials/header') %>
   
-  <body style="background-color: <%= profile.styles.backgroundColor %>;" >
+  <body style="<%= profile.styles.backgroundColor ? '--background-color:'  + profile.styles.backgroundColor + ';'  : '' %>
+    <%= profile.styles.textColor ? '--text-color:' + profile.styles.textColor + ';' : '' %>
+    <%= profile.styles.image ? '--background-image:' + 'url(' + profile.styles.image.replace('public','') + ')' : '' %>
+    ">
     <main class="welcome">
       <section class="user">
         <img src="<%= profile.user.avatarUrl %>" alt="gebruikers profielfoto" />

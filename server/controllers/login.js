@@ -56,12 +56,13 @@ router
   const projectData = await data.user.repositories.nodes
   const status = await data.user.status
   const emoji = getGitEmoji(status)
-
   const styles = {
-    textColor: "#ffffff",
+    textColor: "#ff8a0e",
     backgroundColor: "#ff8a0e",
     image: ""
   }
+
+
 
   const profile = {
     user: data.user,
@@ -76,7 +77,7 @@ router
   const custom = await checkForProfile(username)
   if(custom) {
     res.render('welcome', {
-      profile
+      profile: custom
     })
   } else {
     Users.create(profile)
@@ -92,19 +93,19 @@ router
   res.render('pimpen', {user})
 })
 
-.post('/profile/:username/edit', ensureAuthenticated, upload.single('image'), (req, res) => {
+.post('/profile/:username/edit', ensureAuthenticated, upload.single('image'), async (req, res) => {
   const user = res.locals.user
   const path = `${req.file.path}`
   if (path == undefined){
     path = ''
   }
-  const update = {
-    username: `${user.username}`,
+  const styles = {
     textColor: req.body.tekstkleur,
     backgroundColor: req.body.achtergrondkleur,
     image: `${path}`
   }
-  Users.findOneAndUpdate(user, update)
+
+  await Users.findOneAndUpdate(user.username, { $set: { styles: styles } })
   
   res.redirect(`/profile/${user.username}`)
 })

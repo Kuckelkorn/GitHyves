@@ -1,1 +1,29 @@
+<<<<<<< HEAD
 [{"username":"Joeribouwman25","textColor":"#3f44bb","image":"public/backgrounds/mb.jpeg"},{"username":"zainuwachtig"},{"username":"Kuckelkorn","textColor":"#ff23e2","image":"public/backgrounds/mb.jpeg"},{"username":"joeriBouwman25","textColor":"#cd1818","image":"public/backgrounds/comissie logo.png"},{"username":"MarkvHeusden","textColor":"#0091eb","backgroundColor":"#f00000","image":"public/backgrounds/3d739333-3fcc-4d6f-a193-ef6672061e9a.jpg"},{"username":"jody29"}]
+=======
+[
+	{
+		"username": "joeriBouwman25",
+		"textColor": "#3f44bb",
+		"image": "public/backgrounds/mb.jpeg"
+	},
+	{
+		"username": "zainuwachtig",
+		"textColor": "#0057a8",
+		"backgroundColor": "#ff0000",
+		"image": "public/backgrounds/zain.jpeg"
+	},
+	{
+		"username": "Kuckelkorn",
+		"textColor": "#ff23e2",
+		"backgroundColor": "#ff0000",
+		"image": "public/backgrounds/3d739333-3fcc-4d6f-a193-ef6672061e9a.jpg"
+	},
+	{
+		"username": "MarkvHeusden",
+		"textColor": "#1dc650",
+		"backgroundColor": "#d508d9",
+		"image": "public/backgrounds/xp-bg.jpg"
+	}
+]
+>>>>>>> 916902a958c1b8421724ac80947c53d54d675984

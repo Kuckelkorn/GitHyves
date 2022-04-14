@@ -1,0 +1,26 @@
+<%- include('./partials/head') %>
+<body>
+  <%- include('./partials/header') %>
+<main>
+	<form
+		action="/profile/<%= user.username%>/edit"
+		method="POST"
+		enctype="multipart/form-data"
+	>
+		<label
+			>Kies achtergrondkleur
+			<input name="achtergrondkleur" type="color" />
+		</label>
+		<label
+			>Kies tekstkleur
+			<input name="tekstkleur" type="color" />
+		</label>
+		<label
+			>Achtergrond
+			<input type="file" name="image" />
+		</label>
+		<button type="submit">Pimp je profiel</button>
+	</form>
+</main>
+</body>
+</html>

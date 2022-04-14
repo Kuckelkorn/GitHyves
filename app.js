@@ -1,22 +1,23 @@
-
-const socket = require('socket.io')
+const { Server } = require('socket.io')
 const http = require('http')
-const path = require('path')
 const router = require('./server/controllers/login')
+const chatRoute = require('./server/controllers/chat')
 const session = require('express-session')
+const bodyParser = require('body-parser')
+const fs = require('fs')
 const express = require('express')
 const ejs = require('ejs')
 const compression = require('compression')
 const passport = require('passport')
+const dateFormat = require('dateformat')
 require('dotenv').config();
 require('./server/modules/passportModule.js')(passport);
 
 const app = express();
 const server = http.createServer(app)
-
-// const hostname = '127.0.0.1';
 const port = process.env.PORT || 5500
-
+const io = new Server(server)
+require('dotenv').config()
 
 app
   .use(compression())
@@ -29,6 +30,7 @@ app
     resave: false,
     saveUninitialized: true
   }))
+  .use(bodyParser.urlencoded({ extended: true }))
   .use(passport.initialize())
   .use(passport.session())
   .use('*', saveLocal)
@@ -36,11 +38,46 @@ app
   .set('views', 'server/views')
   .use(express.static('public'))
   .use(express.json())
+  .use(bodyParser.urlencoded({ extended: true }))
   .use(express.urlencoded({ extended: true }))
   .use(router)
+  .use(chatRoute)
 
+dateFormat.masks.chatFormat = 'HH:MM - dd/mm'
 
-  server.listen(port, () => {
+io.on('connection', socket => {
+  socket.on('chat message', async (data) => {
+    try {
+      if (data.message == '') return
+      const chats = JSON.parse(fs.readFileSync('./chat.json'))
+      
+      const body = {
+        message: data.message,
+        username: data.username,
+        date: dateFormat(data.date, 'chatFormat')
+      } 
+
+      chats.chats.push(body)
+
+      const stringData = JSON.stringify(chats, null, 2)
+      fs.writeFileSync('chat.json', stringData) 
+
+      io.sockets.emit('chat message', {
+        message: data.message,
+        username: data.username,
+        date: dateFormat(data.date, 'chatFormat')
+      })
+    } catch (err) {
+      console.log(err)
+    }
+  })
+
+  socket.on('typing', data => {
+    socket.broadcast.emit('typing', { username: data.username})
+  })
+})
+
+server.listen(port, () => {
     console.log("App is running on port " + port)
 })
 

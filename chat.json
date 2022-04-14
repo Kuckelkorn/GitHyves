@@ -1,11 +1,6 @@
 {
   "chats": [
     {
-<<<<<<< HEAD
-      "message": "test",
-      "username": "jody29",
-      "date": "16:54 - 13/04"
-=======
       "message": "hallo",
       "username": "zainuwachtig",
       "date": "17:02 - 13/04"
@@ -14,7 +9,26 @@
       "message": "hoi",
       "username": "MarkvHeusden",
       "date": "17:06 - 13/04"
->>>>>>> 916902a958c1b8421724ac80947c53d54d675984
+    },
+    {
+      "message": "Hey",
+      "username": "jody29",
+      "date": "10:02 - 14/04"
+    },
+    {
+      "message": "hallo",
+      "username": "jody29",
+      "date": "10:22 - 14/04"
+    },
+    {
+      "message": "test",
+      "username": "jody29",
+      "date": "10:23 - 14/04"
+    },
+    {
+      "message": "test",
+      "username": "jody29",
+      "date": "10:24 - 14/04"
     }
   ]
 }

@@ -296,3 +296,60 @@ h1 {
   border-radius: 3em;
   color: var(--grey);
 }
+
+#messages {
+  display: flex;
+  width: 100%;
+  background-color: white;
+  flex-direction: column;
+  color: black;
+  padding: 1em;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.outgoing, .incoming {
+  margin-bottom: 1em;
+  padding: 1em;
+}
+
+.outgoing {
+  background-color: rgb(200,200,200);
+  width: fit-content;
+  border-radius: 1em 1em 1em 0;
+}
+
+.metadata {
+  font-weight: bold;
+}
+
+.incoming {
+  margin-left: auto;
+  background-color: #ff8a0e;
+  border-radius: 1em 1em 0 1em;
+  color: white;
+}
+
+#form {
+  display: flex;
+  width: 100%;
+  padding: 1em;
+  background-color: rgb(202, 202, 202);
+}
+
+#input {
+  width: 100%;
+  padding: 0 1em;
+}
+
+#submit {
+  padding: 1em 2em;
+  border: 0;
+  background-color: #ff8a0e;
+  color: white;
+  font-weight: bold;
+}
+
+#chatPage {
+  height: 76vh;
+}

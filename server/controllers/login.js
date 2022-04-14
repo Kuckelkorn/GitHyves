@@ -45,6 +45,7 @@ router
     followers: data.user.following.nodes,
     projects: projectData
   }
+
   const custom = await checkForProfile(username, profiles)
   res.render('welcome', {
     profile,

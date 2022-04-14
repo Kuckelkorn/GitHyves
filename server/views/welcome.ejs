@@ -22,11 +22,13 @@ if(custom.textColor){ %>
 					<p><%= profile.userStatus.message %></p>
 				</div>
 				<% } %>
+        <% if(profile.user.login === user.login) { %>
 				<a
 					class="button button-orange"
 					href="/profile/<%= profile.user.login %>/edit"
 					>Pimp mijn profiel</a
 				>
+        <% } %>
 			</section>
 
 			<section class="repositories">

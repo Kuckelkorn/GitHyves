@@ -5,7 +5,7 @@ module.exports = (passport) => {
   passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: "http://localhost:5500/github/callback",
+    callbackURL: "https://githyves-project.herokuapp.com/github/callback",
   },
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function () {
